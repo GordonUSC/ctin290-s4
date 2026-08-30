@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session 4 Rundown &middot; CTIN 290</title>
+<meta name="description" content="Run sheet for CTIN 290 Session 4, Wed 2 Sep 2026. Wall-clock cues and working links.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E1116">
+<style>
+  :root{
+    --ground:#0E1116; --surface:#161B22; --surface-2:#1B2530;
+    --ink:#E8EDF4; --ink-2:#9DAABB; --ink-3:#68788B;
+    --rule:#232C38; --live:#FFB000; --live-dim:#7A5A12;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:clamp(17px,.5rem + .85vw,23px); line-height:1.45;
+    padding:clamp(16px,2.5vw,40px);
+  }
+
+  header{
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:.6em 1.4em;
+    border-bottom:2px solid var(--rule); padding-bottom:.7em; margin-bottom:1.1em;
+  }
+  h1{
+    font-size:clamp(1.5rem,1rem + 2.2vw,2.6rem); margin:0; letter-spacing:-.02em;
+    font-weight:700; text-wrap:balance;
+  }
+  .meta{font-family:var(--mono); color:var(--ink-2); font-size:.72em; letter-spacing:.04em}
+  .clock{margin-left:auto; font-family:var(--mono); color:var(--live); font-size:.95em; font-variant-numeric:tabular-nums}
+
+  .board{display:flex; flex-direction:column; gap:2px}
+
+  .row{
+    display:grid; grid-template-columns:minmax(5.2em,auto) 1.1em 1fr; gap:0 .85em;
+    align-items:start; background:var(--surface); padding:.62em .8em;
+    border-left:3px solid transparent;
+  }
+  .row.quiet{background:transparent; color:var(--ink-3); padding-top:.35em; padding-bottom:.35em}
+  .row.now{background:var(--surface-2); border-left-color:var(--live)}
+
+  .t{
+    font-family:var(--mono); font-variant-numeric:tabular-nums; font-weight:600;
+    font-size:1.02em; letter-spacing:-.01em; color:var(--ink-2); padding-top:.05em;
+  }
+  .row.play .t{color:var(--live)}
+  .row.quiet .t{color:var(--ink-3); font-weight:400}
+
+  .mark{text-align:center; color:var(--live); font-size:.9em; padding-top:.12em}
+  .row.quiet .mark{color:var(--ink-3)}
+
+  .what{min-width:0}
+  .title{font-weight:650; letter-spacing:-.01em}
+  .row.quiet .title{font-weight:500}
+  .sub{color:var(--ink-2); font-size:.82em; margin-top:.12em}
+  .ask{color:var(--ink); font-size:.82em; margin-top:.3em; border-left:2px solid var(--live-dim); padding-left:.7em}
+  a{color:var(--live); text-decoration:none; font-family:var(--mono); font-size:.74em; word-break:break-all}
+  a:hover,a:focus-visible{text-decoration:underline}
+  a:focus-visible{outline:2px solid var(--live); outline-offset:2px}
+
+  .unnamed .title.before{color:var(--ink-2); font-style:italic}
+  /* the 11:55 clip stays unnamed until it has actually played */
+  .after{display:none}
+  body.revealed .before{display:none}
+  body.revealed .after{display:block}
+
+  h2{
+    font-size:.78em; text-transform:uppercase; letter-spacing:.13em; color:var(--ink-3);
+    font-weight:600; margin:1.6em 0 .5em; border-top:1px solid var(--rule); padding-top:.9em;
+  }
+  .hw{display:flex; flex-direction:column; gap:.7em}
+  .hw > div{background:var(--surface); padding:.62em .8em}
+  .terms{display:grid; gap:.22em; margin:.5em 0 .6em; font-size:.84em}
+  .terms > div{display:grid; grid-template-columns:3.4em minmax(9.5em,auto) 1fr; gap:.2em .8em; align-items:baseline}
+  .terms b{font-family:var(--mono); color:var(--live); font-weight:700; letter-spacing:.02em}
+  .terms span{color:var(--ink-2)}
+  @media (max-width:640px){
+    .terms > div{grid-template-columns:3.4em 1fr}
+    .terms span{grid-column:1 / -1; padding-left:4.2em}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .row.now{transition:background .3s ease}
+  }
+  @media (max-width:640px){
+    .row{grid-template-columns:1fr; gap:.15em}
+    .mark{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Session 4</h1>
+  <span class="meta">CTIN 290 &middot; WED 2 SEP &middot; 10:00 to 12:50 &middot; SCI L104</span>
+  <span class="clock" id="clock" aria-live="off"></span>
+</header>
+
+<p class="sub" style="margin:0 0 1.2em;color:var(--ink-2)">Camera Movement &amp; Perspective &middot; Unit 1: Seeing<br>
+Recognize pan, tilt, dolly, crane; understand perspective and focal length</p>
+
+<div class="board" id="board">
+
+  <div class="row" data-start="600" data-end="612">
+    <div class="t">10:00</div><div class="mark">&middot;</div>
+    <div class="what">
+      <div class="title">Opening</div>
+      <div class="sub">Introduce camera movement vocabulary: pan (horizontal), tilt (vertical), dolly (forward/backward), crane (elevated). Discuss how movement creates energy, reveals information, guides attention.</div>
+    </div>
+  </div>
+
+  <div class="row play" data-start="612" data-end="648">
+    <div class="t">10:12</div><div class="mark">&#9654;</div>
+    <div class="what">
+      <div class="title">Camera Movement in Action</div>
+      <div class="sub">Analyze Spider-Verse action sequences. Pause frequently. Identify movement type. Discuss effect: what does this dolly achieve? Why tilt here?</div>
+      <div class="sub" style="margin-top:.5em">&#9654; Spider-Man: Into the Spider-Verse, Official Trailer
+        <span style="color:var(--ink-3)">&middot; 1:00 to 1:30 (action sequences)</span></div>
+      <a href="https://www.youtube.com/watch?v=g4Hbz2jLxvQ">youtube.com/watch?v=g4Hbz2jLxvQ</a>
+      <div class="sub">Study dynamic camera movement. Notice dolly, pan, and how movement creates energy and spatial understanding.</div>
+      <div class="sub" style="margin-top:.5em">&#9654; Sinners, Official Trailer (2025)
+        <span style="color:var(--ink-3)">&middot; Throughout</span></div>
+      <a href="https://www.youtube.com/watch?v=bKGxHflevuk">youtube.com/watch?v=bKGxHflevuk</a>
+      <div class="sub">Official, Warner Bros. Coogler shot this large format. Deep focus wide compositions, and a frame used top to bottom instead of center-weighted. The most purely cinematic thing in the canon, which is exactly why it is useful to a room building in engines.</div>
+      <div class="ask">Discuss effect: what does this dolly achieve?</div>
+    </div>
+  </div>
+
+  <div class="row play" data-start="648" data-end="666">
+    <div class="t">10:48</div><div class="mark">&#9654;</div>
+    <div class="what">
+      <div class="title">Activity, Movement Annotation</div>
+      <div class="sub">Students annotate every camera move in an assigned clip and, for each one, write the single sentence that says what the move is chasing. Any move without a sentence is decoration, and finding those is the exercise.</div>
+      <div class="sub" style="margin-top:.5em">&#9654; GTA VI, Official Trailer 1
+        <span style="color:var(--ink-3)">&middot; Full trailer (~2:00)</span></div>
+      <a href="https://www.youtube.com/watch?v=QdBZY2fkU-0">youtube.com/watch?v=QdBZY2fkU-0</a>
+      <div class="sub">Analyze camera movement in game cinematics. How does lens choice change perspective and psychology?</div>
+    </div>
+  </div>
+
+  <div class="row quiet" data-start="666" data-end="676">
+    <div class="t">11:06</div><div class="mark">&middot;</div>
+    <div class="what">
+      <div class="title">Ten-Minute Break</div>
+      <div class="sub">The block is 170 minutes now, not 110. One five-minute break was enough for a two-hour class and it is not enough for this one. Take the full ten and leave the room, because the back half is the half that has to land.</div>
+    </div>
+  </div>
+
+  <div class="row" data-start="676" data-end="706">
+    <div class="t">11:16</div><div class="mark">&middot;</div>
+    <div class="what">
+      <div class="title">Second Text, Sinners, and What a Real Camera Costs</div>
+      <div class="sub">You have spent an hour naming moves in animation and in engines, where a crane shot costs nothing but a keyframe. Now watch Coogler talk about shooting on IMAX film. Every move he describes has a price: weight, setup time, a magazine that runs out. Ask the room what changes about a director&#x27;s choices when the camera is heavy. Then turn it around, because that is the point of this block. Your engin&hellip;</div>
+    </div>
+  </div>
+
+  <div class="row play" data-start="706" data-end="765">
+    <div class="t">11:46</div><div class="mark">&#9654;</div>
+    <div class="what">
+      <div class="title">Analysis &amp; Homework</div>
+      <div class="sub">Create movement diagram of Up sequence. What moves? When? Effect on emotion? Assign: identify camera movement in personal reference clip.</div>
+      <div class="sub" style="margin-top:.5em">&#9654; Sinners, Ryan Coogler on Shooting With IMAX Film Cameras
+        <span style="color:var(--ink-3)">&middot; Throughout</span></div>
+      <a href="https://www.youtube.com/watch?v=okvFCZi5B0k">youtube.com/watch?v=okvFCZi5B0k</a>
+      <div class="sub">Official, IMAX. Coogler on why aspect ratio changes what a shot means, with the cameras and film stock on screen. The engine equivalent is your render target and framing, so the argument transfers even though the tools do not.</div>
+    </div>
+  </div>
+
+  <div class="row quiet" data-start="765" data-end="770">
+    <div class="t">12:45</div><div class="mark">&middot;</div>
+    <div class="what">
+      <div class="title">Exit Ticket, Two Lines Before Anyone Leaves</div>
+      <div class="sub">One term you learned today and where you saw it. One thing you are still unsure of. Collect them at the door. This costs five minutes and it is the cheapest instrument you have for finding out what actually landed. The two things students are least likely to volunteer are which concept went past them and what they believe is expected of them, and this asks for both directly. Read them before the n&hellip;</div>
+    </div>
+  </div>
+
+</div>
+
+<h2>Terms for today</h2><div class="hw"><div><div class="terms">
+    <div><b>Depth of Field</b><span>The zone of sharp focus in an image; controlled by aperture, focal length, and distance. Deep DoF keeps foreground and background sharp; shallow DoF isolates subject.</span></div>
+    <div><b>Dutch Angle</b><span>A tilted or canted frame, not level with the horizon; often signals unease, chaos, or subjective perspective.</span></div>
+    <div><b>Pan/Tilt/Boom</b><span>Camera movements: pan (horizontal turn), tilt (vertical turn), boom (vertical lift). Boom is also a microphone arm.</span></div>
+    <div><b>Parallax</b><span>The apparent shift in position between foreground and background layers when camera moves; creates depth and dimensionality.</span></div>
+  </div>
+  <div class="sub" style="margin-top:.5em"><b style="color:var(--live)">Depth of Field</b>
+    &middot; Throughout &middot; Focus separating figure from ground, and what it forces you to look at.</div>
+  <a href="https://www.youtube.com/watch?v=wWGIakhqr5g">youtube.com/watch?v=wWGIakhqr5g</a>
+  <div class="sub" style="margin-top:.5em"><b style="color:var(--live)">Dutch Angle</b>
+    &middot; Throughout, approx 2:30 &middot; The frame inverts on the leap. The tilt is the whole meaning of the shot.</div>
+  <a href="https://www.youtube.com/watch?v=hpuS9bvhEEQ">youtube.com/watch?v=hpuS9bvhEEQ</a>
+  <div class="sub" style="margin-top:.5em"><b style="color:var(--live)">Pan/Tilt/Boom</b>
+    &middot; Throughout &middot; Motivated camera moves. Ask what each move is chasing.</div>
+  <a href="https://www.youtube.com/watch?v=QdBZY2fkU-0">youtube.com/watch?v=QdBZY2fkU-0</a>
+  <div class="sub" style="margin-top:.5em"><b style="color:var(--live)">Parallax</b>
+    &middot; 0:00 to 9:00 &middot; Layered depth from a 2D-styled image. Watch the planes separate as the camera travels.</div>
+  <a href="https://www.youtube.com/watch?v=zzH4rV08TLI">youtube.com/watch?v=zzH4rV08TLI</a>
+</div></div>
+<h2>Before next session</h2><div class="hw"><div><div class="title">Create movement diagram of Up sequence.</div></div></div>
+
+<h2>This class meets 10:00 AM to 12:50 PM, Mon &amp; Wed</h2>
+
+<script>
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('.row[data-start]'));
+  var clock=document.getElementById('clock');
+  function tick(){
+    var d=new Date(), m=d.getHours()*60+d.getMinutes();
+    clock.textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+    rows.forEach(function(r){
+      r.classList.toggle('now', m>=+r.dataset.start && m<+r.dataset.end);
+    });
+  }
+  tick(); setInterval(tick,15000);
+})();
+</script>
+</body>
+</html>
