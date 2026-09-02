@@ -1,0 +1,255 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<title>S4 Rundown &middot; instructor</title>
+<style>
+:root{
+  --bg:#0E1116; --card:#171C23; --card2:#1E2530; --line:#2A3340;
+  --ink:#F2F5F9; --ink2:#A8B4C4; --ink3:#6E7C8D;
+  --live:#FFB000; --say:#7FC4FF; --do:#FFD98A;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:18px;line-height:1.5;
+  padding:0 max(14px,env(safe-area-inset-left)) calc(64px + env(safe-area-inset-bottom));
+  overflow-x:hidden}
+.top{position:sticky;top:0;z-index:10;background:rgba(14,17,22,.94);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  padding:calc(10px + env(safe-area-inset-top)) 2px 10px;
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.top h1{margin:0;font-size:21px;letter-spacing:-.02em;font-weight:800}
+.top .meta{font-family:var(--mono);font-size:11px;letter-spacing:.09em;color:var(--ink2);
+  text-transform:uppercase}
+.top .now{margin-left:auto;font-family:var(--mono);font-size:20px;font-weight:700;
+  color:var(--live);font-variant-numeric:tabular-nums}
+.aim{margin:16px 2px 4px;font-size:17px;color:var(--ink2);line-height:1.45}
+.jump{display:flex;gap:7px;overflow-x:auto;padding:12px 2px 14px;margin:0 -2px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:0 0 auto;font-family:var(--mono);font-size:15px;font-weight:600;
+  padding:11px 15px;min-height:44px;display:flex;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:11px;
+  color:var(--ink2);text-decoration:none;font-variant-numeric:tabular-nums}
+.jump a.on{background:var(--live);border-color:var(--live);color:#12161B}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:15px;
+  padding:15px 15px 17px;margin:0 0 12px;scroll-margin-top:74px}
+.blk.now{border-color:var(--live);box-shadow:0 0 0 2px rgba(255,176,0,.26)}
+.hd{display:flex;align-items:baseline;gap:11px;margin-bottom:7px}
+.clk{font-family:var(--mono);font-size:29px;font-weight:700;color:var(--live);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1}
+.len{font-family:var(--mono);font-size:13px;color:var(--ink3);font-weight:600}
+.len i{font-style:normal;margin-left:2px}
+.blk h2{margin:0 0 10px;font-size:24px;line-height:1.17;letter-spacing:-.022em;font-weight:750;
+  text-wrap:balance}
+.say{margin:0 0 11px;font-size:17px;line-height:1.5;color:var(--ink2);
+  border-left:3px solid var(--say);padding-left:12px}
+.do{margin:0;font-size:17.5px;line-height:1.52;color:var(--do);
+  background:rgba(255,217,138,.07);border-left:3px solid var(--do);padding:10px 12px;
+  border-radius:0 8px 8px 0}
+.do b{color:#fff;letter-spacing:.02em}
+.clips{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.clip{display:block;background:var(--card2);border:1px solid var(--line);border-radius:11px;
+  padding:12px 13px;text-decoration:none;min-height:44px}
+.clip:active{background:#26303D}
+.ct{display:block;font-size:17px;font-weight:700;color:var(--live);line-height:1.25;
+  margin-bottom:3px}
+.cm{display:block;font-family:var(--mono);font-size:11.5px;color:var(--ink3);
+  letter-spacing:.04em;margin-bottom:6px}
+.cn{display:block;font-size:15.5px;color:var(--ink2);line-height:1.45}
+h3.sec{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink3);margin:30px 2px 12px;padding-top:16px;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:16px}
+td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+td:first-child{width:38%;color:var(--ink)}
+td b{color:var(--live);font-weight:700}
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:15px;
+  margin:0 0 12px}
+.card p{margin:0 0 10px;font-size:16.5px;line-height:1.5;color:var(--ink2)}
+.card p:last-child{margin:0}
+.card b{color:var(--ink)}
+.foot{margin-top:26px;padding:16px 2px 0;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink3);line-height:1.5}
+.foot a{color:var(--say)}
+a:focus-visible{outline:3px solid var(--live);outline-offset:3px}
+@media (min-width:760px){
+  body{font-size:19px;max-width:800px;margin:0 auto;padding-left:22px;padding-right:22px}
+  .blk h2{font-size:28px} .clk{font-size:33px}
+}
+</style>
+
+<div class="top">
+  <h1>S4 Rundown</h1>
+  <span class="meta">Wed 2 Sep &middot; SCI L104</span>
+  <span class="now" id="now"></span>
+</div>
+
+<p class="aim"><b>Today:</b> Learn to name what the camera is doing, and to tell a move that means something from a move that is only decoration.</p>
+
+<nav class="jump" id="jump">
+<a href="#b600">10:00</a>
+<a href="#b612">10:12</a>
+<a href="#b648">10:48</a>
+<a href="#b666">11:06</a>
+<a href="#b676">11:16</a>
+<a href="#b706">11:46</a>
+<a href="#b731">12:11</a>
+<a href="#b755">12:35</a>
+<a href="#b765">12:45</a>
+</nav>
+
+<section class="blk" data-start="600" data-end="612" id="b600">
+  <div class="hd">
+    <span class="clk">10:00</span>
+    <span class="len">12<i>min</i></span>
+  </div>
+  <h2>Opening: The Four Moves</h2>
+  <p class="say">Pan is a horizontal turn. Tilt is vertical. Dolly moves the whole camera toward or away from the subject. Crane lifts it through space. Four words. By the end of today you will spot all four and be able to say what each one is for.</p>
+  <p class="do"><b>You:</b> Introduce the vocabulary fast and resist over-explaining. They get the real definitions on Sheet 2 and the depth comes from the annotation activity, not from you talking. Twelve minutes is enough, and running long here is what wrecks the back half.</p>
+  
+</section>
+<section class="blk" data-start="612" data-end="648" id="b612">
+  <div class="hd">
+    <span class="clk">10:12</span>
+    <span class="len">36<i>min</i></span>
+  </div>
+  <h2>Camera Movement in Action</h2>
+  <p class="say">We watch Spider-Verse and Sinners, and we stop constantly. Every time we stop: name the move, then say what it is chasing. These are two films with opposite relationships to the camera. In one it costs nothing to move. In the other every move was expensive.</p>
+  <p class="do"><b>You:</b> Pause constantly, this is the anchor block. Spider-Verse first, 1:00 to 1:30, then the whole trailer. Then Sinners. The question to land is which camera is freer and what that freedom costs in meaning. Do not let this run long; the annotation activity is where it actually lands.</p>
+  <div class="clips"><a class="clip" href="https://www.youtube.com/watch?v=g4Hbz2jLxvQ" target="_blank" rel="noopener">
+      <span class="ct">Spider-Man: Into the Spider-Verse, Official Trailer</span>
+      <span class="cm">Sony Pictures Entertainment &middot; 2:40 &middot; 10:12 &middot; play 1:00 to 1:30, then again whole</span>
+      <span class="cn">Only two minutes forty, so you can afford to stop on every move. This is the anchor text.</span>
+    </a><a class="clip" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+      <span class="ct">Sinners, Official Trailer</span>
+      <span class="cm">Warner Bros. &middot; 2:00 &middot; 10:12 &middot; play after Spider-Verse</span>
+      <span class="cn">Sit it directly against Spider-Verse. The comparison is the block.</span>
+    </a></div>
+</section>
+<section class="blk" data-start="648" data-end="666" id="b648">
+  <div class="hd">
+    <span class="clk">10:48</span>
+    <span class="len">18<i>min</i></span>
+  </div>
+  <h2>Activity: Movement Annotation</h2>
+  <p class="say">GTA VI Trailer 1, ninety seconds, on a loop. Annotate every camera move. For each one, write the single sentence that says what that move is chasing. A move you cannot write a sentence for is decoration, and finding those is the point of the exercise.</p>
+  <p class="do"><b>You:</b> Loop the clip, do not play it once and move on. Ninety seconds means they can genuinely mark everything. Circulate. The students who finish fast are usually the ones writing “it looks cool” sentences; push those to name what the move reveals.</p>
+  <div class="clips"><a class="clip" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+      <span class="ct">Grand Theft Auto VI, Trailer 1</span>
+      <span class="cm">Rockstar Games &middot; 1:30 &middot; 10:48 &middot; the assigned clip, played on a loop</span>
+      <span class="cn">Loop it. Do not play it once. This is the clip the whole activity hangs on.</span>
+    </a></div>
+</section>
+<section class="blk" data-start="666" data-end="676" id="b666">
+  <div class="hd">
+    <span class="clk">11:06</span>
+    <span class="len">10<i>min</i></span>
+  </div>
+  <h2>Break</h2>
+  <p class="say">Ten minutes. Leave the room.</p>
+  <p class="do"><b>You:</b> The block is 170 minutes now, not 110. One five-minute break was right for a two-hour class and it is not right for this one. Take the full ten and leave the room yourself, because the back half is the half that has to land.</p>
+  
+</section>
+<section class="blk" data-start="676" data-end="706" id="b676">
+  <div class="hd">
+    <span class="clk">11:16</span>
+    <span class="len">30<i>min</i></span>
+  </div>
+  <h2>Second Text: What a Real Camera Costs</h2>
+  <p class="say">Ryan Coogler on shooting Sinners with IMAX film cameras. Every move he describes has a price: weight, setup time, a magazine that runs out. Then the question turns around on you. Your engine camera weighs nothing. So what stops you from moving it constantly, and what is lost when nothing does?</p>
+  <p class="do"><b>You:</b> Two minutes of video holding a thirty-minute block. The video is the prompt; the discussion is the work, so have both questions ready before you press play. If the room goes quiet, ask them to name one move from the annotation activity they would cut first if it cost ten thousand dollars to shoot.</p>
+  <div class="clips"><a class="clip" href="https://www.youtube.com/watch?v=okvFCZi5B0k" target="_blank" rel="noopener">
+      <span class="ct">Sinners: Ryan Coogler on Shooting With IMAX Film Cameras</span>
+      <span class="cm">IMAX &middot; 2:02 &middot; 11:16 &middot; play whole, then discuss</span>
+      <span class="cn">Two minutes carrying thirty. Questions ready before you press play.</span>
+    </a></div>
+</section>
+<section class="blk" data-start="706" data-end="731" id="b706">
+  <div class="hd">
+    <span class="clk">11:46</span>
+    <span class="len">25<i>min</i></span>
+  </div>
+  <h2>Annotation Share-Back</h2>
+  <p class="say">Compare your annotations in pairs. Where two of you marked the same move and wrote different sentences, that disagreement is the useful part, not a mistake. Then the harder question: which moves did nobody manage a sentence for?</p>
+  <p class="do"><b>You:</b> Keep a running list on the board with two columns: moves that survived a sentence, and moves that did not. The second column is the lesson. Do not resolve the disagreements for them, and do not let a confident student settle one by volume.</p>
+  
+</section>
+<section class="blk" data-start="731" data-end="755" id="b731">
+  <div class="hd">
+    <span class="clk">12:11</span>
+    <span class="len">24<i>min</i></span>
+  </div>
+  <h2>Movement Diagram: Up, &ldquo;Married Life&rdquo;</h2>
+  <p class="say">Back to the four minutes you watched cold in Session 2 and annotated for shot scale. Third pass, new vocabulary. Diagram it on paper: what moves, when, and what the move does to the emotion.</p>
+  <p class="do"><b>You:</b> They know this sequence close to by heart, which is exactly why it works here. The point they should reach on their own is how little the camera moves and how much each move is carrying because of it. Ask why a sequence about an entire marriage holds so still, then wait. Do not give them the answer.</p>
+  
+</section>
+<section class="blk" data-start="755" data-end="765" id="b755">
+  <div class="hd">
+    <span class="clk">12:35</span>
+    <span class="len">10<i>min</i></span>
+  </div>
+  <h2>Homework and Close</h2>
+  <p class="say">Find a camera movement in a clip of your own choosing, from outside the course canon. Write the one sentence saying what the move is chasing. Bring the clip and the sentence. Then rewatch the four teaching clips on Sheet 2, about twenty-one minutes total.</p>
+  <p class="do"><b>You:</b> Say the Session 6 date out loud and write it on the board. There is a week and a holiday between this class and the next one, and the homework is easy to lose in that gap.</p>
+  
+</section>
+<section class="blk" data-start="765" data-end="770" id="b765">
+  <div class="hd">
+    <span class="clk">12:45</span>
+    <span class="len">5<i>min</i></span>
+  </div>
+  <h2>Exit Ticket</h2>
+  <p class="say">Two lines on paper before you leave. One term you learned today and where you saw it. One thing you are still unsure of.</p>
+  <p class="do"><b>You:</b> Collect them at the door. Five minutes, and it is the cheapest instrument you have for finding out what actually landed. The two things students are least likely to volunteer are which concept went past them and what they believe is expected of them, and this asks for both directly. Read them before Session 6 and open that class by answering the two most common ones by name.</p>
+  
+</section>
+
+<h3 class="sec">If you are ahead</h3>
+<div class="card">
+  <p><b>Grand Theft Auto VI: An Extended Look</b> &middot; Rockstar Games &middot; 26:48</p>
+  <p>Reach for it only if the annotation activity finishes early, and start at 6:00 where Session 3 stopped rather than starting over. Rockstar never writes Trailer 3 on it, so search the title.</p>
+  <p><a href="https://www.youtube.com/watch?v=tJbzMqJGH4k" target="_blank" rel="noopener">https://www.youtube.com/watch?v=tJbzMqJGH4k</a></p>
+</div>
+
+<h3 class="sec">Terms you are introducing</h3>
+<div class="card" style="padding:4px 10px"><table><tr><td><b>Depth of Field</b></td><td>The zone of sharp focus in an image; controlled by aperture, focal length, and distance. Deep DoF keeps foreground and background sharp; shallow DoF isolates subject.</td></tr><tr><td><b>Dutch Angle</b></td><td>A tilted or canted frame, not level with the horizon; often signals unease, chaos, or subjective perspective.</td></tr><tr><td><b>Pan / Tilt / Boom</b></td><td>Camera movements: pan (horizontal turn), tilt (vertical turn), boom (vertical lift). Boom is also a microphone arm.</td></tr><tr><td><b>Parallax</b></td><td>The apparent shift in position between foreground and background layers when camera moves; creates depth and dimensionality.</td></tr></table></div>
+
+<h3 class="sec">Before you leave the room</h3>
+<div class="card">
+  <p><b>Collect the exit tickets at the door.</b> Read them before Session 6 and open that
+  class by answering the two most common ones by name.</p>
+  <p><b>Say the next meeting out loud: Session 6, Wed 9 Sep.</b> Session 5 is Labor Day, so there is no class on Mon 7 Sep. The
+  homework is easy to lose across a week and a holiday.</p>
+</div>
+
+<div class="foot">
+  <p><b>Instructor copy.</b> The student pages are the
+  <a href="index.html">rundown</a>, <a href="media.html">Sheet 1, media</a> and
+  <a href="terms.html">Sheet 2, terms</a>. This page is not linked from any of them.</p>
+  <p>Blue rule is what the class hears. Amber is yours. Both render from one source file, so
+  the two versions cannot drift.</p>
+</div>
+
+<script>
+(function(){
+  var blks=[].slice.call(document.querySelectorAll('.blk[data-start]')),
+      jumps=[].slice.call(document.querySelectorAll('#jump a')),
+      now=document.getElementById('now');
+  function tick(){
+    var d=new Date(), m=d.getHours()*60+d.getMinutes(), hit=-1;
+    now.textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+    blks.forEach(function(b,i){
+      var on = m>=+b.dataset.start && m<+b.dataset.end;
+      b.classList.toggle('now',on);
+      if(on) hit=i;
+    });
+    jumps.forEach(function(a,i){ a.classList.toggle('on', i===hit); });
+  }
+  tick(); setInterval(tick,15000);
+})();
+</script>
