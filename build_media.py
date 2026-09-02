@@ -7,12 +7,14 @@ from _kit import KIT, NAV
 import session4 as S
 
 ORDER = ["spidey", "sinners", "gta1", "imax", "extended"]
+SCREENED = ["spidey", "sinners", "gta1", "imax"]   # item 05 is not screened; see note
+in_class = sum(S.mmss(S.MEDIA[k][3]) for k in SCREENED)
 
 rows = []
 for i, k in enumerate(ORDER, 1):
     vid, title, chan, rt, cue, teaches, watch, moves, inote = S.MEDIA[k]
     url = "https://www.youtube.com/watch?v=" + vid
-    opt = " opt" if "Optional" in cue else ""
+    opt = "" if k in SCREENED else " opt"
     chips = "".join(f"<i>{H.escape(m)}</i>" for m in moves)
     rows.append(f'''<article class="item{opt}">
   <div class="n">{i:02d}</div>
@@ -25,8 +27,6 @@ for i, k in enumerate(ORDER, 1):
     <p class="url"><a href="{url}" target="_blank" rel="noopener">{url}</a></p>
   </div>
 </article>''')
-
-in_class = sum(S.mmss(S.MEDIA[k][3]) for k in ORDER if "Optional" not in S.MEDIA[k][4])
 
 page = f'''{KIT}
 <title>Session 4 Media</title>
@@ -81,8 +81,10 @@ page = f'''{KIT}
  play the same thirty seconds three times. Most of today is spent stopping.</p>
  <p><b>The clip you annotate is GTA VI Trailer 1</b>, ninety seconds, item 03. It is short
  enough that you can mark every move in it, which is the whole reason it was chosen.</p>
- <p><b>Item 05 is optional</b> and we reach it only if we are ahead. Session 3 played its first
- six minutes for color; the remaining twenty are camera, which is why it comes back today.</p>
+ <p><b>Item 05 is not being screened, because you have already seen all of it.</b> We watched
+ the full twenty-seven minutes in Session 3 and asked what the color was doing. Today the same
+ footage is on the table with a different question, which is the third time this course has
+ asked you to look at something twice and see a different thing. Bring what you remember.</p>
 </div>
 <div class="foot">
  <p>Every link on this sheet was checked on 1 Sep 2026. Runtimes are read off the videos.</p>

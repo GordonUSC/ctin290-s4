@@ -133,13 +133,17 @@ MEDIA = {
    "Two minutes carrying thirty. Questions ready before you press play."),
 
  "extended": ("tJbzMqJGH4k", "Grand Theft Auto VI: An Extended Look", "Rockstar Games", "26:48",
-   "Optional, only if we are ahead",
-   "Twenty-seven minutes of camera.",
-   "Session 3 played the first six minutes of this for color. The other twenty are camera.",
+   "Already watched &middot; nothing to screen",
+   "Twenty-seven minutes of camera you have already seen.",
+   "We watched all of this in Session 3, for color. Today it is the same footage and a "
+   "different question, which is the third time this course has done that on purpose. You do "
+   "not need to rewatch it. You need to remember it and now notice what the camera was doing "
+   "while you were looking at the light.",
    ["Follow", "Dolly", "Handheld"],
-   "Reach for it only if the annotation activity finishes early, and start at 6:00 where "
-   "Session 3 stopped rather than starting over. Rockstar never writes Trailer 3 on it, so "
-   "search the title."),
+   "No screening needed, they have seen every minute of it. That makes it your cheapest "
+   "reference in the room: point at it from memory rather than playing it. It is also the "
+   "obvious fallback for any student stuck on the homework, since the whole class already "
+   "shares the text. Rockstar never writes Trailer 3 on it, so search the title."),
 }
 
 # teaching clips: id, title, channel, runtime
