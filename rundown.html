@@ -7,7 +7,7 @@
 :root{
   --bg:#0E1116; --card:#171C23; --card2:#1E2530; --line:#2A3340;
   --ink:#F2F5F9; --ink2:#A8B4C4; --ink3:#6E7C8D;
-  --live:#FFB000; --say:#7FC4FF; --do:#FFD98A;
+  --live:#FFB000; --say:#7FC4FF; --do:#FFD98A; --term:#7FE0A8; --warn:#FF7A59;
   --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
@@ -15,76 +15,103 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   font-size:18px;line-height:1.5;
-  padding:0 max(14px,env(safe-area-inset-left)) calc(64px + env(safe-area-inset-bottom));
+  padding:0 max(13px,env(safe-area-inset-left)) calc(64px + env(safe-area-inset-bottom));
   overflow-x:hidden}
-.top{position:sticky;top:0;z-index:10;background:rgba(14,17,22,.94);
+.top{position:sticky;top:0;z-index:10;background:rgba(14,17,22,.95);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
-  padding:calc(10px + env(safe-area-inset-top)) 2px 10px;
-  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.top h1{margin:0;font-size:21px;letter-spacing:-.02em;font-weight:800}
-.top .meta{font-family:var(--mono);font-size:11px;letter-spacing:.09em;color:var(--ink2);
+  padding:calc(9px + env(safe-area-inset-top)) 2px 9px;
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.top h1{margin:0;font-size:20px;letter-spacing:-.02em;font-weight:800}
+.top .meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink2);
   text-transform:uppercase}
-.top .now{margin-left:auto;font-family:var(--mono);font-size:20px;font-weight:700;
+.top .now{margin-left:auto;font-family:var(--mono);font-size:19px;font-weight:700;
   color:var(--live);font-variant-numeric:tabular-nums}
-.aim{margin:16px 2px 4px;font-size:17px;color:var(--ink2);line-height:1.45}
-.jump{display:flex;gap:7px;overflow-x:auto;padding:12px 2px 14px;margin:0 -2px;
+.aim{margin:15px 2px 2px;font-size:16.5px;color:var(--ink2);line-height:1.45}
+.jump{display:flex;gap:6px;overflow-x:auto;padding:11px 2px 13px;margin:0 -2px;
   -webkit-overflow-scrolling:touch;scrollbar-width:none}
 .jump::-webkit-scrollbar{display:none}
-.jump a{flex:0 0 auto;font-family:var(--mono);font-size:15px;font-weight:600;
-  padding:11px 15px;min-height:44px;display:flex;align-items:center;
+.jump a{flex:0 0 auto;font-family:var(--mono);font-size:14px;font-weight:600;
+  padding:11px 14px;min-height:44px;display:flex;align-items:center;
   background:var(--card);border:1px solid var(--line);border-radius:11px;
   color:var(--ink2);text-decoration:none;font-variant-numeric:tabular-nums}
 .jump a.on{background:var(--live);border-color:var(--live);color:#12161B}
 .blk{background:var(--card);border:1px solid var(--line);border-radius:15px;
-  padding:15px 15px 17px;margin:0 0 12px;scroll-margin-top:74px}
+  padding:14px 13px 15px;margin:0 0 12px;scroll-margin-top:70px}
 .blk.now{border-color:var(--live);box-shadow:0 0 0 2px rgba(255,176,0,.26)}
-.hd{display:flex;align-items:baseline;gap:11px;margin-bottom:7px}
-.clk{font-family:var(--mono);font-size:29px;font-weight:700;color:var(--live);
+.hd{display:flex;align-items:baseline;gap:10px;margin-bottom:5px}
+.clk{font-family:var(--mono);font-size:27px;font-weight:700;color:var(--live);
   font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1}
-.len{font-family:var(--mono);font-size:13px;color:var(--ink3);font-weight:600}
+.len{font-family:var(--mono);font-size:12.5px;color:var(--ink3);font-weight:600}
 .len i{font-style:normal;margin-left:2px}
-.blk h2{margin:0 0 10px;font-size:24px;line-height:1.17;letter-spacing:-.022em;font-weight:750;
-  text-wrap:balance}
-.say{margin:0 0 11px;font-size:17px;line-height:1.5;color:var(--ink2);
-  border-left:3px solid var(--say);padding-left:12px}
-.do{margin:0;font-size:17.5px;line-height:1.52;color:var(--do);
-  background:rgba(255,217,138,.07);border-left:3px solid var(--do);padding:10px 12px;
-  border-radius:0 8px 8px 0}
-.do b{color:#fff;letter-spacing:.02em}
-.clips{margin-top:12px;display:flex;flex-direction:column;gap:8px}
-.clip{display:block;background:var(--card2);border:1px solid var(--line);border-radius:11px;
-  padding:12px 13px;text-decoration:none;min-height:44px}
-.clip:active{background:#26303D}
-.ct{display:block;font-size:17px;font-weight:700;color:var(--live);line-height:1.25;
-  margin-bottom:3px}
-.cm{display:block;font-family:var(--mono);font-size:11.5px;color:var(--ink3);
-  letter-spacing:.04em;margin-bottom:6px}
-.cn{display:block;font-size:15.5px;color:var(--ink2);line-height:1.45}
-h3.sec{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+.blk h2{margin:0 0 13px;font-size:23px;line-height:1.16;letter-spacing:-.022em;
+  font-weight:750;text-wrap:balance}
+.step{border-top:1px solid var(--line);padding:12px 0 3px}
+.sh{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:9px}
+.sc{font-family:var(--mono);font-size:17px;font-weight:700;color:var(--ink);
+  font-variant-numeric:tabular-nums}
+.sd{font-family:var(--mono);font-size:11px;color:var(--ink3);font-weight:600}
+.sl{font-size:16px;font-weight:700;color:var(--ink2);letter-spacing:-.01em}
+.tag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:3px;margin-bottom:7px}
+.saybox{background:rgba(127,196,255,.09);border-left:3px solid var(--say);
+  padding:10px 12px;border-radius:0 9px 9px 0;margin:0 0 9px}
+.saybox .tag{background:var(--say);color:#0B1B28}
+.say{margin:0 0 8px;font-size:18.5px;line-height:1.45;color:#DCEBFA}
+.say:last-child{margin:0}
+.say::before{content:"\201C"} .say::after{content:"\201D"}
+.dobox{background:rgba(255,217,138,.07);border-left:3px solid var(--do);
+  padding:10px 12px;border-radius:0 9px 9px 0;margin:0 0 9px}
+.dobox .tag{background:var(--do);color:#2B1F05}
+.dobox ul{margin:0;padding-left:17px}
+.dobox li{font-size:16.5px;line-height:1.45;color:var(--do);margin:0 0 5px}
+.dobox li:last-child{margin:0}
+.show{display:block;background:var(--card2);border:1px solid var(--line);border-radius:11px;
+  padding:11px 12px;margin:0 0 9px;text-decoration:none;min-height:44px}
+.show .tag{background:var(--live);color:#12161B}
+.show.warn{border-color:var(--warn)}
+.show.warn .tag{background:var(--warn);color:#2B0E06}
+.st{display:block;font-size:17px;font-weight:700;color:var(--live);line-height:1.25}
+.show.warn .st{color:var(--warn)}
+.sm{display:block;font-family:var(--mono);font-size:11px;color:var(--ink3);
+  letter-spacing:.04em;margin:3px 0 6px}
+.sn{display:block;font-size:15.5px;color:var(--ink2);line-height:1.45}
+.term{background:var(--card2);border:1px solid var(--line);border-left:3px solid var(--term);
+  border-radius:0 11px 11px 0;padding:11px 12px;margin:0 0 9px}
+.term .tag{background:var(--line);color:var(--ink2)}
+.term.key .tag{background:var(--term);color:#062015}
+.tn{display:block;font-size:19px;font-weight:800;color:var(--term);letter-spacing:-.02em}
+.td{display:block;font-size:15.5px;color:var(--ink2);line-height:1.45;margin:4px 0 9px}
+.tv{display:block;background:rgba(255,255,255,.04);border:1px solid var(--line);
+  border-radius:9px;padding:9px 11px;margin:0 0 6px;text-decoration:none;
+  font-size:16px;font-weight:650;color:var(--ink);line-height:1.3;min-height:44px}
+.tv:last-child{margin:0}
+.tl{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.tv.teach{border-left:3px solid var(--say)}
+.tv.canon{border-left:3px solid var(--live)}
+.tm{display:block;font-family:var(--mono);font-size:11px;color:var(--ink3);margin-top:3px}
+h3.sec{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--ink3);margin:30px 2px 12px;padding-top:16px;border-top:1px solid var(--line)}
-table{width:100%;border-collapse:collapse;font-size:16px}
-td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2)}
-td:first-child{width:38%;color:var(--ink)}
-td b{color:var(--live);font-weight:700}
-.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:15px;
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px;
   margin:0 0 12px}
 .card p{margin:0 0 10px;font-size:16.5px;line-height:1.5;color:var(--ink2)}
 .card p:last-child{margin:0}
 .card b{color:var(--ink)}
-.foot{margin-top:26px;padding:16px 2px 0;border-top:1px solid var(--line);
+.card a{color:var(--live);word-break:break-all}
+.foot{margin-top:24px;padding:15px 2px 0;border-top:1px solid var(--line);
   font-size:14px;color:var(--ink3);line-height:1.5}
 .foot a{color:var(--say)}
 a:focus-visible{outline:3px solid var(--live);outline-offset:3px}
 @media (min-width:760px){
-  body{font-size:19px;max-width:800px;margin:0 auto;padding-left:22px;padding-right:22px}
-  .blk h2{font-size:28px} .clk{font-size:33px}
+  body{font-size:19px;max-width:820px;margin:0 auto;padding-left:22px;padding-right:22px}
+  .blk h2{font-size:27px} .clk{font-size:31px}
 }
 </style>
 
 <div class="top">
   <h1>S4 Rundown</h1>
-  <span class="meta">Wed 2 Sep &middot; SCI L104</span>
+  <span class="meta">Wed 2 Sep &middot; SCI L104 &middot; yours only</span>
   <span class="now" id="now"></span>
 </div>
 
@@ -103,111 +130,293 @@ a:focus-visible{outline:3px solid var(--live);outline-offset:3px}
 </nav>
 
 <section class="blk" data-start="600" data-end="612" id="b600">
-  <div class="hd">
-    <span class="clk">10:00</span>
-    <span class="len">12<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">10:00</span><span class="len">12<i>min</i></span></div>
   <h2>Opening: The Four Moves</h2>
-  <p class="say">Pan is a horizontal turn. Tilt is vertical. Dolly moves the whole camera toward or away from the subject. Crane lifts it through space. Four words. By the end of today you will spot all four and be able to say what each one is for.</p>
-  <p class="do"><b>You:</b> Introduce the vocabulary fast and resist over-explaining. They get the real definitions on Sheet 2 and the depth comes from the annotation activity, not from you talking. Twelve minutes is enough, and running long here is what wrecks the back half.</p>
-  
+  <div class="step">
+   <div class="sh"><span class="sc">10:00</span><span class="sd">2 min</span>
+     <span class="sl">Land the session</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Monday we talked about color and light. Today we talk about the camera, and about the fact that it moves.</p><p class="say">By the time you leave you will be able to name what a camera is doing, and say whether it had a reason to do it.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Write four words on the board and leave them up: PAN, TILT, DOLLY, CRANE.</li></ul></div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">10:02</span><span class="sd">7 min</span>
+     <span class="sl">The four moves, on your own body</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Pan is my head turning. Tilt is my head nodding. Dolly is me walking toward you. Crane is me being lifted.</p><p class="say">That is the entire vocabulary for today and you already own all of it in your body.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Demonstrate each one physically. Turn, nod, walk toward the front row, then reach up.</li><li>Make them do it with you. It takes thirty seconds and it is the reason they remember.</li></ul></div><div class="term key">
+   <span class="tag">Term &middot; On the syllabus</span>
+   <b class="tn">Pan / Tilt / Boom</b>
+   <span class="td">Camera movements: pan (horizontal turn), tilt (vertical turn), boom (vertical lift). Boom is also a microphone arm.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=R994JUx7PJ8" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Film Glossary: Shot Movement (Dolly, Crane, Track, Zoom, Tilt, Pan)
+     <span class="tm">J.D. Swerzenski &middot; 1:40</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Grand Theft Auto VI, Trailer 1</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Dolly</b>
+   <span class="td">Moving the whole camera toward or away from the subject, rather than zooming. The relationship between foreground and background changes, which is why it feels like travel and a zoom does not.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=AKOxbCx1LNc" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>The Difference Between Dolly and Zoom Shots
+     <span class="tm">Film Riot &middot; 6:22</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Crane / Boom move</b>
+   <span class="td">Lifting or lowering the camera through space on an arm. Usually used to reveal scale, or to leave a scene rather than cut away from it.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=SojAuaWQ0fk" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>The Art Of The CRANE SHOT
+     <span class="tm">Tao Hudson &middot; 4:48</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">10:09</span><span class="sd">3 min</span>
+     <span class="sl">The question that runs all day</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">One question runs through everything today. Not what is the camera doing. What is the camera chasing.</p><p class="say">A move that is chasing something is motivated. A move that is chasing nothing is decoration. By 12:45 you will be able to tell them apart inside ninety seconds of footage.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Write WHAT IS IT CHASING? on the board. Leave it up for the whole session.</li><li>Do not define motivated formally yet. They earn it at 10:48.</li></ul></div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Motivated camera move</b>
+   <span class="td">A move that exists because something in the scene requires it: a subject moves, a fact needs revealing, an emotion turns. The opposite is decoration.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=DfhI4RV5KKQ" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Motivated VS Unmotivated Camera Movement
+     <span class="tm">Brickwall Pictures &middot; 5:07</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Grand Theft Auto VI, Trailer 1</a>
+  </div>
+  </div>
 </section>
 <section class="blk" data-start="612" data-end="648" id="b612">
-  <div class="hd">
-    <span class="clk">10:12</span>
-    <span class="len">36<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">10:12</span><span class="len">36<i>min</i></span></div>
   <h2>Camera Movement in Action</h2>
-  <p class="say">We watch Spider-Verse and Sinners, and we stop constantly. Every time we stop: name the move, then say what it is chasing. These are two films with opposite relationships to the camera. In one it costs nothing to move. In the other every move was expensive.</p>
-  <p class="do"><b>You:</b> Pause constantly, this is the anchor block. Spider-Verse first, 1:00 to 1:30, then the whole trailer. Then Sinners. The question to land is which camera is freer and what that freedom costs in meaning. Do not let this run long; the annotation activity is where it actually lands.</p>
-  <div class="clips"><a class="clip" href="https://www.youtube.com/watch?v=g4Hbz2jLxvQ" target="_blank" rel="noopener">
-      <span class="ct">Spider-Man: Into the Spider-Verse, Official Trailer</span>
-      <span class="cm">Sony Pictures Entertainment &middot; 2:40 &middot; 10:12 &middot; play 1:00 to 1:30, then again whole</span>
-      <span class="cn">Only two minutes forty, so you can afford to stop on every move. This is the anchor text.</span>
-    </a><a class="clip" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
-      <span class="ct">Sinners, Official Trailer</span>
-      <span class="cm">Warner Bros. &middot; 2:00 &middot; 10:12 &middot; play after Spider-Verse</span>
-      <span class="cn">Sit it directly against Spider-Verse. The comparison is the block.</span>
-    </a></div>
+  <div class="step">
+   <div class="sh"><span class="sc">10:12</span><span class="sd">8 min</span>
+     <span class="sl">Spider-Verse, first pass, no talking</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Watch it once. I am not going to say anything over it.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Play 1:00 to 1:30 twice, then run the whole trailer once.</li><li>Say nothing during it. The silence is the point; they are building an impression you will take apart in a minute.</li></ul></div><a class="show" href="https://www.youtube.com/watch?v=g4Hbz2jLxvQ" target="_blank" rel="noopener">
+   <span class="tag">Show</span>
+   <span class="st">Spider-Man: Into the Spider-Verse, Official Trailer</span>
+   <span class="sm">Sony Pictures Entertainment &middot; 2:40 &middot; 10:12 &middot; play 1:00 to 1:30, then again whole</span>
+   <span class="sn">Only two minutes forty, so you can afford to stop on every move. This is the anchor text.</span>
+  </a>
+  </div><div class="step">
+   <div class="sh"><span class="sc">10:20</span><span class="sd">12 min</span>
+     <span class="sl">Spider-Verse, second pass, stop on every move</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Freeze. What just happened to the frame?</p><p class="say">Good. Now the second half. What was it chasing?</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Pause constantly. Cold-call by name, alternate around the room.</li><li>When the frame tilts, name Dutch angle. When the layers slide, name parallax.</li><li>Watch for the moment the camera stops behaving like a camera and starts behaving like the character. That is the one to slow down on.</li></ul></div><div class="term key">
+   <span class="tag">Term &middot; On the syllabus</span>
+   <b class="tn">Parallax</b>
+   <span class="td">The apparent shift in position between foreground and background layers when camera moves; creates depth and dimensionality.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=YdHTlUGN1zw" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Walt Disney&#x27;s MultiPlane Camera, filmed 13 Feb 1957
+     <span class="tm">Walt Disney Productions, 1957 &middot; 7:20</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=zzH4rV08TLI" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Spider-Verse, First 9 Minutes</a>
+  </div><div class="term key">
+   <span class="tag">Term &middot; On the syllabus</span>
+   <b class="tn">Dutch Angle</b>
+   <span class="td">A tilted or canted frame, not level with the horizon; often signals unease, chaos, or subjective perspective.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=SHYfsYQDr6M" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Why movies tilt the camera like this
+     <span class="tm">Vox &middot; 5:28</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=hpuS9bvhEEQ" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Spider-Verse, “It’s a leap of faith”</a>
+  </div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">10:32</span><span class="sd">10 min</span>
+     <span class="sl">Sinners, the opposite physics</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Same exercise, different physics. Coogler shot this on large format film.</p><p class="say">Every move you are about to see cost money, and time, and somebody&#x27;s back.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Play the trailer. Stop on the wide compositions.</li><li>Name deep focus and ask what it does to where your eye goes.</li><li>Name the locked-off shots. Stillness is a decision, not an absence of one.</li></ul></div><a class="show" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+   <span class="tag">Show</span>
+   <span class="st">Sinners, Official Trailer</span>
+   <span class="sm">Warner Bros. &middot; 2:00 &middot; 10:12 &middot; play after Spider-Verse</span>
+   <span class="sn">Sit it directly against Spider-Verse. The comparison is the block.</span>
+  </a><div class="term key">
+   <span class="tag">Term &middot; On the syllabus</span>
+   <b class="tn">Depth of Field</b>
+   <span class="td">The zone of sharp focus in an image; controlled by aperture, focal length, and distance. Deep DoF keeps foreground and background sharp; shallow DoF isolates subject.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=6DZiJrL_9tU" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Learn Depth of Field in 6 Minutes (With Real Examples)
+     <span class="tm">Never fStop &middot; 6:25</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Handheld vs. locked-off</b>
+   <span class="td">Handheld carries visible human motion; locked-off is fixed and still. One puts a body in the room with the subject, the other puts a witness at a distance.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=eL_XaKA5qWM" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Why Great Directors Lock the Camera
+     <span class="tm">StudioBinder &middot; 11:57</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">10:42</span><span class="sd">6 min</span>
+     <span class="sl">The comparison, which is the block</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Which of those two cameras is freer?</p><p class="say">Now the harder one. Which of those two cameras means more?</p><p class="say">I shipped football games at EA where the broadcast camera barely moved, and that was a design decision, not a limitation.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Let the second question sit. Do not answer it for them.</li><li>SAY THE EA LINE. You consistently undersell this and it is the single thing in the room that makes the argument concrete: you have actually shipped a camera.</li></ul></div>
+  </div>
 </section>
 <section class="blk" data-start="648" data-end="666" id="b648">
-  <div class="hd">
-    <span class="clk">10:48</span>
-    <span class="len">18<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">10:48</span><span class="len">18<i>min</i></span></div>
   <h2>Activity: Movement Annotation</h2>
-  <p class="say">GTA VI Trailer 1, ninety seconds, on a loop. Annotate every camera move. For each one, write the single sentence that says what that move is chasing. A move you cannot write a sentence for is decoration, and finding those is the point of the exercise.</p>
-  <p class="do"><b>You:</b> Loop the clip, do not play it once and move on. Ninety seconds means they can genuinely mark everything. Circulate. The students who finish fast are usually the ones writing “it looks cool” sentences; push those to name what the move reveals.</p>
-  <div class="clips"><a class="clip" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
-      <span class="ct">Grand Theft Auto VI, Trailer 1</span>
-      <span class="cm">Rockstar Games &middot; 1:30 &middot; 10:48 &middot; the assigned clip, played on a loop</span>
-      <span class="cn">Loop it. Do not play it once. This is the clip the whole activity hangs on.</span>
-    </a></div>
+  <div class="step">
+   <div class="sh"><span class="sc">10:48</span><span class="sd">3 min</span>
+     <span class="sl">Set up the annotation</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Two columns on your page. Left column, the move. Right column, one sentence saying what that move is chasing.</p><p class="say">If you cannot write the sentence, still write the move down. Those are the interesting ones.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Put the two column headings on the board: MOVE / WHAT IT IS CHASING.</li><li>Ninety seconds of footage. Tell them it will loop and they do not need to rush.</li></ul></div><a class="show" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+   <span class="tag">Show</span>
+   <span class="st">Grand Theft Auto VI, Trailer 1</span>
+   <span class="sm">Rockstar Games &middot; 1:30 &middot; 10:48 &middot; the assigned clip, played on a loop</span>
+   <span class="sn">Loop it. Do not play it once. This is the clip the whole activity hangs on.</span>
+  </a><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Tracking / Following shot</b>
+   <span class="td">The camera travels with a moving subject, holding them roughly in frame. Keeps you attached to a character rather than watching them from outside.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=mkVYpzyJvG8" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>How to Shoot Better Tracking Shots
+     <span class="tm">StudioBinder &middot; 5:06</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Grand Theft Auto VI, Trailer 1</a>
+  </div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">10:51</span><span class="sd">12 min</span>
+     <span class="sl">Run the loop</span></div>
+   <div class="dobox"><span class="tag">Do</span><ul><li>Loop the clip continuously for the full twelve minutes. Do not play it once and stop.</li><li>Circulate. Read over shoulders.</li><li>The students who finish fast are usually writing “it looks cool”. Push those to name what the move reveals that a static frame would not.</li></ul></div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">11:03</span><span class="sd">3 min</span>
+     <span class="sl">First read of the room</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Hands up. How many moves did you mark?</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Write the range on the board, lowest to highest. Do not comment on it yet.</li><li>That spread is the setup for the share-back at 11:46.</li></ul></div>
+  </div>
 </section>
 <section class="blk" data-start="666" data-end="676" id="b666">
-  <div class="hd">
-    <span class="clk">11:06</span>
-    <span class="len">10<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">11:06</span><span class="len">10<i>min</i></span></div>
   <h2>Break</h2>
-  <p class="say">Ten minutes. Leave the room.</p>
-  <p class="do"><b>You:</b> The block is 170 minutes now, not 110. One five-minute break was right for a two-hour class and it is not right for this one. Take the full ten and leave the room yourself, because the back half is the half that has to land.</p>
-  
+  <div class="step">
+   <div class="sh"><span class="sc">11:06</span><span class="sd">10 min</span>
+     <span class="sl">Break</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Ten minutes. Go outside.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Take it yourself and leave the room. The back half is the half that has to land.</li></ul></div>
+  </div>
 </section>
 <section class="blk" data-start="676" data-end="706" id="b676">
-  <div class="hd">
-    <span class="clk">11:16</span>
-    <span class="len">30<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">11:16</span><span class="len">30<i>min</i></span></div>
   <h2>Second Text: What a Real Camera Costs</h2>
-  <p class="say">Ryan Coogler on shooting Sinners with IMAX film cameras. Every move he describes has a price: weight, setup time, a magazine that runs out. Then the question turns around on you. Your engine camera weighs nothing. So what stops you from moving it constantly, and what is lost when nothing does?</p>
-  <p class="do"><b>You:</b> Two minutes of video holding a thirty-minute block. The video is the prompt; the discussion is the work, so have both questions ready before you press play. If the room goes quiet, ask them to name one move from the annotation activity they would cut first if it cost ten thousand dollars to shoot.</p>
-  <div class="clips"><a class="clip" href="https://www.youtube.com/watch?v=okvFCZi5B0k" target="_blank" rel="noopener">
-      <span class="ct">Sinners: Ryan Coogler on Shooting With IMAX Film Cameras</span>
-      <span class="cm">IMAX &middot; 2:02 &middot; 11:16 &middot; play whole, then discuss</span>
-      <span class="cn">Two minutes carrying thirty. Questions ready before you press play.</span>
-    </a></div>
+  <div class="step">
+   <div class="sh"><span class="sc">11:16</span><span class="sd">3 min</span>
+     <span class="sl">Frame the second text</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">You have spent an hour in worlds where moving the camera is free. A crane shot costs a keyframe.</p><p class="say">Now watch somebody talk about a camera you have to carry.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Do not preview the argument. Let Coogler make it.</li></ul></div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">11:19</span><span class="sd">3 min</span>
+     <span class="sl">Play it</span></div>
+   <div class="dobox"><span class="tag">Do</span><ul><li>Play the whole two minutes. It is short.</li></ul></div><a class="show" href="https://www.youtube.com/watch?v=okvFCZi5B0k" target="_blank" rel="noopener">
+   <span class="tag">Show</span>
+   <span class="st">Sinners: Ryan Coogler on Shooting With IMAX Film Cameras</span>
+   <span class="sm">IMAX &middot; 2:02 &middot; 11:16 &middot; play whole, then discuss</span>
+   <span class="sn">Two minutes carrying thirty. Questions ready before you press play.</span>
+  </a>
+  </div><div class="step">
+   <div class="sh"><span class="sc">11:22</span><span class="sd">12 min</span>
+     <span class="sl">What changes when the camera is heavy</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">What changes about a director&#x27;s choices when the camera weighs something?</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Draw out: weight, setup time, a magazine that runs out, a crew that has to be paid.</li><li>Name focal length when aspect ratio comes up. Format and lens are the same kind of decision: made before the shot, and it decides what the shot can mean.</li></ul></div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Focal length</b>
+   <span class="td">How wide or narrow the lens sees. Wide lenses exaggerate depth and distance between planes; long lenses compress them and flatten the space.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=fC-fyXCAWzA" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>What is Lens Compression? Camera Focal Length Explained
+     <span class="tm">Remy Leonard &middot; 5:29</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=okvFCZi5B0k" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Coogler on Shooting With IMAX Film Cameras</a>
+  </div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">11:34</span><span class="sd">12 min</span>
+     <span class="sl">Turn it around, which is the point</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Your engine camera weighs nothing. Nothing at all.</p><p class="say">So what stops you from moving it constantly? And what is lost when nothing does?</p></div><div class="dobox"><span class="tag">Do</span><ul><li>This is the block. Give it the full twelve minutes.</li><li>If the room goes quiet, ask them to name one move from the annotation they would cut first if it cost ten thousand dollars.</li></ul></div>
+  </div>
 </section>
 <section class="blk" data-start="706" data-end="731" id="b706">
-  <div class="hd">
-    <span class="clk">11:46</span>
-    <span class="len">25<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">11:46</span><span class="len">25<i>min</i></span></div>
   <h2>Annotation Share-Back</h2>
-  <p class="say">Compare your annotations in pairs. Where two of you marked the same move and wrote different sentences, that disagreement is the useful part, not a mistake. Then the harder question: which moves did nobody manage a sentence for?</p>
-  <p class="do"><b>You:</b> Keep a running list on the board with two columns: moves that survived a sentence, and moves that did not. The second column is the lesson. Do not resolve the disagreements for them, and do not let a confident student settle one by volume.</p>
-  
+  <div class="step">
+   <div class="sh"><span class="sc">11:46</span><span class="sd">3 min</span>
+     <span class="sl">Pair up</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Find someone who is not sitting next to you. Trade pages.</p></div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">11:49</span><span class="sd">12 min</span>
+     <span class="sl">Compare annotations</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Where you both marked the same move and wrote different sentences, stop there. That disagreement is the useful part, not a mistake.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Circulate. Do not resolve the disagreements for them.</li><li>Do not let a confident student settle one by volume. Ask the quieter one to say theirs again.</li></ul></div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">12:01</span><span class="sd">10 min</span>
+     <span class="sl">Board the two columns</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Which moves did nobody manage a sentence for?</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Two columns on the board: SURVIVED A SENTENCE / DID NOT.</li><li>The second column is the whole lesson. Let it get long and do not rescue it.</li></ul></div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Motivated camera move</b>
+   <span class="td">A move that exists because something in the scene requires it: a subject moves, a fact needs revealing, an emotion turns. The opposite is decoration.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=DfhI4RV5KKQ" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Motivated VS Unmotivated Camera Movement
+     <span class="tm">Brickwall Pictures &middot; 5:07</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Grand Theft Auto VI, Trailer 1</a>
+  </div>
+  </div>
 </section>
 <section class="blk" data-start="731" data-end="755" id="b731">
-  <div class="hd">
-    <span class="clk">12:11</span>
-    <span class="len">24<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">12:11</span><span class="len">24<i>min</i></span></div>
   <h2>Movement Diagram: Up, &ldquo;Married Life&rdquo;</h2>
-  <p class="say">Back to the four minutes you watched cold in Session 2 and annotated for shot scale. Third pass, new vocabulary. Diagram it on paper: what moves, when, and what the move does to the emotion.</p>
-  <p class="do"><b>You:</b> They know this sequence close to by heart, which is exactly why it works here. The point they should reach on their own is how little the camera moves and how much each move is carrying because of it. Ask why a sequence about an entire marriage holds so still, then wait. Do not give them the answer.</p>
-  
+  <div class="step">
+   <div class="sh"><span class="sc">12:11</span><span class="sd">4 min</span>
+     <span class="sl">Set it up, and remind them</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">You watched this cold in Session 2 with no vocabulary at all. Then you took it apart for shot scale.</p><p class="say">Third pass. Same four minutes. New words.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>PREVIEW THIS CLIP BEFORE CLASS. See the note on the media card.</li><li>Do not tell them what they are about to notice.</li></ul></div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">12:15</span><span class="sd">4 min</span>
+     <span class="sl">Play 0:00 to 4:00</span></div>
+   <div class="dobox"><span class="tag">Do</span><ul><li>Play it clean, no commentary.</li></ul></div><a class="show warn" href="https://www.youtube.com/watch?v=XoyZmu0IOKc" target="_blank" rel="noopener">
+   <span class="tag">Show</span>
+   <span class="st">Up, “Married Life”</span>
+   <span class="sm">Pixar, official &middot; 4:34 &middot; 12:11 &middot; play 0:00 to 4:00</span>
+   <span class="sn">PREVIEW TEN SECONDS BEFORE CLASS. This is Pixar&#x27;s official upload but the title says “Side by Side”, which is a series that pairs finished animation against storyboards. If it opens split-screen it is the wrong upload for a diagramming exercise and you should switch to the alternative below. This has been flagged since Session 2 and is still unconfirmed.</span>
+  </a>
+  </div><div class="step">
+   <div class="sh"><span class="sc">12:19</span><span class="sd">12 min</span>
+     <span class="sl">Diagram it</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">On paper. A line for the sequence. Mark every camera move on it, and under each mark, what that move does to the emotion.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Circulate. Most diagrams will be nearly empty, and that is correct.</li><li>Do not tell them the camera barely moves. Let the empty page say it.</li></ul></div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Handheld vs. locked-off</b>
+   <span class="td">Handheld carries visible human motion; locked-off is fixed and still. One puts a body in the room with the subject, the other puts a witness at a distance.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=eL_XaKA5qWM" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Why Great Directors Lock the Camera
+     <span class="tm">StudioBinder &middot; 11:57</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">12:31</span><span class="sd">4 min</span>
+     <span class="sl">The question</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Why does a sequence about an entire marriage hold so still?</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Ask it, then wait. Wait longer than is comfortable.</li><li>Do not give them the answer. This is the one they should carry out of the room.</li></ul></div>
+  </div>
 </section>
 <section class="blk" data-start="755" data-end="765" id="b755">
-  <div class="hd">
-    <span class="clk">12:35</span>
-    <span class="len">10<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">12:35</span><span class="len">10<i>min</i></span></div>
   <h2>Homework and Close</h2>
-  <p class="say">Find a camera movement in a clip of your own choosing, from outside the course canon. Write the one sentence saying what the move is chasing. Bring the clip and the sentence. Then rewatch the four teaching clips on Sheet 2, about twenty-one minutes total.</p>
-  <p class="do"><b>You:</b> Say the Session 6 date out loud and write it on the board. There is a week and a holiday between this class and the next one, and the homework is easy to lose in that gap.</p>
-  
+  <div class="step">
+   <div class="sh"><span class="sc">12:35</span><span class="sd">5 min</span>
+     <span class="sl">Assign the homework</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Find a camera movement in a clip of your own choosing, from outside anything we have watched together. Write the one sentence saying what that move is chasing. Bring both.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Anyone stuck can use the GTA VI Extended Look, since the whole room has seen all twenty-seven minutes of it.</li><li>Say the next meeting out loud and write it on the board: Session 6, Wed 9 Sep. Session 5 is Labor Day. A week and a holiday is where homework goes to die.</li></ul></div>
+  </div><div class="step">
+   <div class="sh"><span class="sc">12:40</span><span class="sd">5 min</span>
+     <span class="sl">Name the four terms and the rewatch</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Four terms today. Depth of field, dutch angle, pan tilt boom, parallax.</p><p class="say">Sheet 2 has two videos for each one. The first teaches the term. The second shows it working in something we have already watched together. Twenty-one minutes in total, and that is the required part.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Put the Sheet 2 link in Discord before you leave the room.</li></ul></div>
+  </div>
 </section>
 <section class="blk" data-start="765" data-end="770" id="b765">
-  <div class="hd">
-    <span class="clk">12:45</span>
-    <span class="len">5<i>min</i></span>
-  </div>
+  <div class="hd"><span class="clk">12:45</span><span class="len">5<i>min</i></span></div>
   <h2>Exit Ticket</h2>
-  <p class="say">Two lines on paper before you leave. One term you learned today and where you saw it. One thing you are still unsure of.</p>
-  <p class="do"><b>You:</b> Collect them at the door. Five minutes, and it is the cheapest instrument you have for finding out what actually landed. The two things students are least likely to volunteer are which concept went past them and what they believe is expected of them, and this asks for both directly. Read them before Session 6 and open that class by answering the two most common ones by name.</p>
-  
+  <div class="step">
+   <div class="sh"><span class="sc">12:45</span><span class="sd">5 min</span>
+     <span class="sl">Exit ticket</span></div>
+   <div class="saybox"><span class="tag">Say</span><p class="say">Two lines on paper before you go. One term you learned today and where you saw it. One thing you are still unsure of.</p></div><div class="dobox"><span class="tag">Do</span><ul><li>Collect at the door. Stand there so it actually happens.</li><li>Read them before Session 6 and open that class by answering the two most common by name.</li></ul></div>
+  </div>
 </section>
+
+<h3 class="sec">Before class, two minutes</h3>
+<div class="card">
+  <p><b>Preview the Up clip.</b> Pixar's official upload is titled &ldquo;Side by Side&rdquo;,
+  a series that pairs finished animation against storyboards. If it opens split-screen it is
+  wrong for a diagramming exercise. Ten seconds of previewing settles it.</p>
+  <p><b>Fallback if it is split-screen:</b> UP Married Life 1440p HD, UP Pixar, a fan channel, 4:23.
+  <a href="https://www.youtube.com/watch?v=EHoHhdbEq1Y" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EHoHhdbEq1Y</a></p>
+  <p><b>Put the Sheet 2 link in Discord</b> so the rewatch homework is one tap for them.</p>
+</div>
 
 <h3 class="sec">If you are ahead</h3>
 <div class="card">
@@ -216,23 +425,106 @@ a:focus-visible{outline:3px solid var(--live);outline-offset:3px}
   <p><a href="https://www.youtube.com/watch?v=tJbzMqJGH4k" target="_blank" rel="noopener">https://www.youtube.com/watch?v=tJbzMqJGH4k</a></p>
 </div>
 
-<h3 class="sec">Terms you are introducing</h3>
-<div class="card" style="padding:4px 10px"><table><tr><td><b>Depth of Field</b></td><td>The zone of sharp focus in an image; controlled by aperture, focal length, and distance. Deep DoF keeps foreground and background sharp; shallow DoF isolates subject.</td></tr><tr><td><b>Dutch Angle</b></td><td>A tilted or canted frame, not level with the horizon; often signals unease, chaos, or subjective perspective.</td></tr><tr><td><b>Pan / Tilt / Boom</b></td><td>Camera movements: pan (horizontal turn), tilt (vertical turn), boom (vertical lift). Boom is also a microphone arm.</td></tr><tr><td><b>Parallax</b></td><td>The apparent shift in position between foreground and background layers when camera moves; creates depth and dimensionality.</td></tr></table></div>
-
-<h3 class="sec">Before you leave the room</h3>
-<div class="card">
-  <p><b>Collect the exit tickets at the door.</b> Read them before Session 6 and open that
-  class by answering the two most common ones by name.</p>
-  <p><b>Say the next meeting out loud: Session 6, Wed 9 Sep.</b> Session 5 is Labor Day, so there is no class on Mon 7 Sep. The
-  homework is easy to lose across a week and a holiday.</p>
-</div>
+<h3 class="sec">All ten terms, both videos each</h3>
+<div class="term key">
+   <span class="tag">Term &middot; On the syllabus</span>
+   <b class="tn">Depth of Field</b>
+   <span class="td">The zone of sharp focus in an image; controlled by aperture, focal length, and distance. Deep DoF keeps foreground and background sharp; shallow DoF isolates subject.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=6DZiJrL_9tU" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Learn Depth of Field in 6 Minutes (With Real Examples)
+     <span class="tm">Never fStop &middot; 6:25</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div><div class="term key">
+   <span class="tag">Term &middot; On the syllabus</span>
+   <b class="tn">Dutch Angle</b>
+   <span class="td">A tilted or canted frame, not level with the horizon; often signals unease, chaos, or subjective perspective.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=SHYfsYQDr6M" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Why movies tilt the camera like this
+     <span class="tm">Vox &middot; 5:28</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=hpuS9bvhEEQ" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Spider-Verse, “It’s a leap of faith”</a>
+  </div><div class="term key">
+   <span class="tag">Term &middot; On the syllabus</span>
+   <b class="tn">Pan / Tilt / Boom</b>
+   <span class="td">Camera movements: pan (horizontal turn), tilt (vertical turn), boom (vertical lift). Boom is also a microphone arm.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=R994JUx7PJ8" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Film Glossary: Shot Movement (Dolly, Crane, Track, Zoom, Tilt, Pan)
+     <span class="tm">J.D. Swerzenski &middot; 1:40</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Grand Theft Auto VI, Trailer 1</a>
+  </div><div class="term key">
+   <span class="tag">Term &middot; On the syllabus</span>
+   <b class="tn">Parallax</b>
+   <span class="td">The apparent shift in position between foreground and background layers when camera moves; creates depth and dimensionality.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=YdHTlUGN1zw" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Walt Disney&#x27;s MultiPlane Camera, filmed 13 Feb 1957
+     <span class="tm">Walt Disney Productions, 1957 &middot; 7:20</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=zzH4rV08TLI" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Spider-Verse, First 9 Minutes</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Dolly</b>
+   <span class="td">Moving the whole camera toward or away from the subject, rather than zooming. The relationship between foreground and background changes, which is why it feels like travel and a zoom does not.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=AKOxbCx1LNc" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>The Difference Between Dolly and Zoom Shots
+     <span class="tm">Film Riot &middot; 6:22</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Crane / Boom move</b>
+   <span class="td">Lifting or lowering the camera through space on an arm. Usually used to reveal scale, or to leave a scene rather than cut away from it.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=SojAuaWQ0fk" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>The Art Of The CRANE SHOT
+     <span class="tm">Tao Hudson &middot; 4:48</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Focal length</b>
+   <span class="td">How wide or narrow the lens sees. Wide lenses exaggerate depth and distance between planes; long lenses compress them and flatten the space.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=fC-fyXCAWzA" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>What is Lens Compression? Camera Focal Length Explained
+     <span class="tm">Remy Leonard &middot; 5:29</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=okvFCZi5B0k" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Coogler on Shooting With IMAX Film Cameras</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Tracking / Following shot</b>
+   <span class="td">The camera travels with a moving subject, holding them roughly in frame. Keeps you attached to a character rather than watching them from outside.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=mkVYpzyJvG8" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>How to Shoot Better Tracking Shots
+     <span class="tm">StudioBinder &middot; 5:06</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Grand Theft Auto VI, Trailer 1</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Handheld vs. locked-off</b>
+   <span class="td">Handheld carries visible human motion; locked-off is fixed and still. One puts a body in the room with the subject, the other puts a witness at a distance.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=eL_XaKA5qWM" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Why Great Directors Lock the Camera
+     <span class="tm">StudioBinder &middot; 11:57</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Sinners, Official Trailer</a>
+  </div><div class="term">
+   <span class="tag">Term &middot; Also covered</span>
+   <b class="tn">Motivated camera move</b>
+   <span class="td">A move that exists because something in the scene requires it: a subject moves, a fact needs revealing, an emotion turns. The opposite is decoration.</span>
+   <a class="tv teach" href="https://www.youtube.com/watch?v=DfhI4RV5KKQ" target="_blank" rel="noopener">
+     <span class="tl">Teaches it</span>Motivated VS Unmotivated Camera Movement
+     <span class="tm">Brickwall Pictures &middot; 5:07</span></a>
+   <a class="tv canon" href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">
+     <span class="tl">Seen in</span>Grand Theft Auto VI, Trailer 1</a>
+  </div>
 
 <div class="foot">
-  <p><b>Instructor copy.</b> The student pages are the
+  <p><b>Instructor copy, not linked from anything students see.</b> Their pages are the
   <a href="index.html">rundown</a>, <a href="media.html">Sheet 1, media</a> and
-  <a href="terms.html">Sheet 2, terms</a>. This page is not linked from any of them.</p>
-  <p>Blue rule is what the class hears. Amber is yours. Both render from one source file, so
-  the two versions cannot drift.</p>
+  <a href="terms.html">Sheet 2, terms</a>.</p>
+  <p>Blue is what you say out loud. Amber is what you do. Green is a term landing, with the
+  clip that teaches it and the clip they have already seen it in. All of it renders from one
+  source file, so this page and theirs cannot drift.</p>
 </div>
 
 <script>

@@ -289,3 +289,212 @@ def mmss(t):
 
 REQUIRED_REWATCH = sum(mmss(TEACH[k][3]) for k in ("dof", "dutch", "glos", "multi"))
 ALL_TEACH = sum(mmss(v[3]) for v in TEACH.values())
+
+
+# ---------------------------------------------------------------------------
+# The Up sequence, used at 12:11. Session 2 screened it cold.
+MEDIA["up"] = ("XoyZmu0IOKc", "Up, “Married Life”", "Pixar, official", "4:34",
+   "12:11 &middot; play 0:00 to 4:00",
+   "A whole marriage, and a camera that almost never moves.",
+   "The sequence they saw cold in Session 2. Third pass, new vocabulary.",
+   ["Locked-off", "Dolly", "Tilt"],
+   "PREVIEW TEN SECONDS BEFORE CLASS. This is Pixar's official upload but the title says "
+   "“Side by Side”, which is a series that pairs finished animation against storyboards. "
+   "If it opens split-screen it is the wrong upload for a diagramming exercise and you should "
+   "switch to the alternative below. This has been flagged since Session 2 and is still "
+   "unconfirmed.")
+
+MEDIA["up_alt"] = ("EHoHhdbEq1Y", "UP Married Life 1440p HD", "UP Pixar, a fan channel", "4:23",
+   "12:11 &middot; fallback only",
+   "The clean finished sequence, if the official upload is split-screen.",
+   "Same four minutes with no storyboard comparison.",
+   ["Locked-off", "Dolly", "Tilt"],
+   "Fallback. Not an official channel, so say whose upload it is if you play it.")
+
+# term name -> (teach key, canon key), built from the two term lists
+TERM_VIDEOS = {t[0]: (t[2], t[4]) for t in GLOSSARY + UNPACKED}
+TERM_DEF = {t[0]: t[1] for t in GLOSSARY + UNPACKED}
+GLOSSARY_NAMES = [t[0] for t in GLOSSARY]
+
+# block start -> [(from, to, label, [SAY lines], [DO lines], media key or None, [term names])]
+STEPS = {
+ 600: [
+  (600, 602, "Land the session", [
+    "Monday we talked about color and light. Today we talk about the camera, and about the "
+    "fact that it moves.",
+    "By the time you leave you will be able to name what a camera is doing, and say whether "
+    "it had a reason to do it."],
+   ["Write four words on the board and leave them up: PAN, TILT, DOLLY, CRANE."], None, []),
+
+  (602, 609, "The four moves, on your own body", [
+    "Pan is my head turning. Tilt is my head nodding. Dolly is me walking toward you. Crane "
+    "is me being lifted.",
+    "That is the entire vocabulary for today and you already own all of it in your body."],
+   ["Demonstrate each one physically. Turn, nod, walk toward the front row, then reach up.",
+    "Make them do it with you. It takes thirty seconds and it is the reason they remember."],
+   None, ["Pan / Tilt / Boom", "Dolly", "Crane / Boom move"]),
+
+  (609, 612, "The question that runs all day", [
+    "One question runs through everything today. Not what is the camera doing. What is the "
+    "camera chasing.",
+    "A move that is chasing something is motivated. A move that is chasing nothing is "
+    "decoration. By 12:45 you will be able to tell them apart inside ninety seconds of footage."],
+   ["Write WHAT IS IT CHASING? on the board. Leave it up for the whole session.",
+    "Do not define motivated formally yet. They earn it at 10:48."],
+   None, ["Motivated camera move"]),
+ ],
+
+ 612: [
+  (612, 620, "Spider-Verse, first pass, no talking", [
+    "Watch it once. I am not going to say anything over it."],
+   ["Play 1:00 to 1:30 twice, then run the whole trailer once.",
+    "Say nothing during it. The silence is the point; they are building an impression you "
+    "will take apart in a minute."], "spidey", []),
+
+  (620, 632, "Spider-Verse, second pass, stop on every move", [
+    "Freeze. What just happened to the frame?",
+    "Good. Now the second half. What was it chasing?"],
+   ["Pause constantly. Cold-call by name, alternate around the room.",
+    "When the frame tilts, name Dutch angle. When the layers slide, name parallax.",
+    "Watch for the moment the camera stops behaving like a camera and starts behaving like "
+    "the character. That is the one to slow down on."],
+   None, ["Parallax", "Dutch Angle"]),
+
+  (632, 642, "Sinners, the opposite physics", [
+    "Same exercise, different physics. Coogler shot this on large format film.",
+    "Every move you are about to see cost money, and time, and somebody's back."],
+   ["Play the trailer. Stop on the wide compositions.",
+    "Name deep focus and ask what it does to where your eye goes.",
+    "Name the locked-off shots. Stillness is a decision, not an absence of one."],
+   "sinners", ["Depth of Field", "Handheld vs. locked-off"]),
+
+  (642, 648, "The comparison, which is the block", [
+    "Which of those two cameras is freer?",
+    "Now the harder one. Which of those two cameras means more?",
+    "I shipped football games at EA where the broadcast camera barely moved, and that was a "
+    "design decision, not a limitation."],
+   ["Let the second question sit. Do not answer it for them.",
+    "SAY THE EA LINE. You consistently undersell this and it is the single thing in the room "
+    "that makes the argument concrete: you have actually shipped a camera."],
+   None, []),
+ ],
+
+ 648: [
+  (648, 651, "Set up the annotation", [
+    "Two columns on your page. Left column, the move. Right column, one sentence saying what "
+    "that move is chasing.",
+    "If you cannot write the sentence, still write the move down. Those are the interesting ones."],
+   ["Put the two column headings on the board: MOVE / WHAT IT IS CHASING.",
+    "Ninety seconds of footage. Tell them it will loop and they do not need to rush."],
+   "gta1", ["Tracking / Following shot"]),
+
+  (651, 663, "Run the loop", [], [
+    "Loop the clip continuously for the full twelve minutes. Do not play it once and stop.",
+    "Circulate. Read over shoulders.",
+    "The students who finish fast are usually writing “it looks cool”. Push those to name "
+    "what the move reveals that a static frame would not."], None, []),
+
+  (663, 666, "First read of the room", [
+    "Hands up. How many moves did you mark?"],
+   ["Write the range on the board, lowest to highest. Do not comment on it yet.",
+    "That spread is the setup for the share-back at 11:46."], None, []),
+ ],
+
+ 666: [
+  (666, 676, "Break", ["Ten minutes. Go outside."],
+   ["Take it yourself and leave the room. The back half is the half that has to land."],
+   None, []),
+ ],
+
+ 676: [
+  (676, 679, "Frame the second text", [
+    "You have spent an hour in worlds where moving the camera is free. A crane shot costs a "
+    "keyframe.",
+    "Now watch somebody talk about a camera you have to carry."],
+   ["Do not preview the argument. Let Coogler make it."], None, []),
+
+  (679, 682, "Play it", [], ["Play the whole two minutes. It is short."], "imax", []),
+
+  (682, 694, "What changes when the camera is heavy", [
+    "What changes about a director's choices when the camera weighs something?"],
+   ["Draw out: weight, setup time, a magazine that runs out, a crew that has to be paid.",
+    "Name focal length when aspect ratio comes up. Format and lens are the same kind of "
+    "decision: made before the shot, and it decides what the shot can mean."],
+   None, ["Focal length"]),
+
+  (694, 706, "Turn it around, which is the point", [
+    "Your engine camera weighs nothing. Nothing at all.",
+    "So what stops you from moving it constantly? And what is lost when nothing does?"],
+   ["This is the block. Give it the full twelve minutes.",
+    "If the room goes quiet, ask them to name one move from the annotation they would cut "
+    "first if it cost ten thousand dollars."], None, []),
+ ],
+
+ 706: [
+  (706, 709, "Pair up", [
+    "Find someone who is not sitting next to you. Trade pages."], [], None, []),
+
+  (709, 721, "Compare annotations", [
+    "Where you both marked the same move and wrote different sentences, stop there. That "
+    "disagreement is the useful part, not a mistake."],
+   ["Circulate. Do not resolve the disagreements for them.",
+    "Do not let a confident student settle one by volume. Ask the quieter one to say theirs "
+    "again."], None, []),
+
+  (721, 731, "Board the two columns", [
+    "Which moves did nobody manage a sentence for?"],
+   ["Two columns on the board: SURVIVED A SENTENCE / DID NOT.",
+    "The second column is the whole lesson. Let it get long and do not rescue it."],
+   None, ["Motivated camera move"]),
+ ],
+
+ 731: [
+  (731, 735, "Set it up, and remind them", [
+    "You watched this cold in Session 2 with no vocabulary at all. Then you took it apart for "
+    "shot scale.",
+    "Third pass. Same four minutes. New words."],
+   ["PREVIEW THIS CLIP BEFORE CLASS. See the note on the media card.",
+    "Do not tell them what they are about to notice."], None, []),
+
+  (735, 739, "Play 0:00 to 4:00", [], ["Play it clean, no commentary."], "up", []),
+
+  (739, 751, "Diagram it", [
+    "On paper. A line for the sequence. Mark every camera move on it, and under each mark, "
+    "what that move does to the emotion."],
+   ["Circulate. Most diagrams will be nearly empty, and that is correct.",
+    "Do not tell them the camera barely moves. Let the empty page say it."],
+   None, ["Handheld vs. locked-off"]),
+
+  (751, 755, "The question", [
+    "Why does a sequence about an entire marriage hold so still?"],
+   ["Ask it, then wait. Wait longer than is comfortable.",
+    "Do not give them the answer. This is the one they should carry out of the room."],
+   None, []),
+ ],
+
+ 755: [
+  (755, 760, "Assign the homework", [
+    "Find a camera movement in a clip of your own choosing, from outside anything we have "
+    "watched together. Write the one sentence saying what that move is chasing. Bring both."],
+   ["Anyone stuck can use the GTA VI Extended Look, since the whole room has seen all "
+    "twenty-seven minutes of it.",
+    "Say the next meeting out loud and write it on the board: Session 6, Wed 9 Sep. Session 5 "
+    "is Labor Day. A week and a holiday is where homework goes to die."], None, []),
+
+  (760, 765, "Name the four terms and the rewatch", [
+    "Four terms today. Depth of field, dutch angle, pan tilt boom, parallax.",
+    "Sheet 2 has two videos for each one. The first teaches the term. The second shows it "
+    "working in something we have already watched together. Twenty-one minutes in total, and "
+    "that is the required part."],
+   ["Put the Sheet 2 link in Discord before you leave the room."], None, []),
+ ],
+
+ 765: [
+  (765, 770, "Exit ticket", [
+    "Two lines on paper before you go. One term you learned today and where you saw it. One "
+    "thing you are still unsure of."],
+   ["Collect at the door. Stand there so it actually happens.",
+    "Read them before Session 6 and open that class by answering the two most common by name."],
+   None, []),
+ ],
+}
