@@ -1,0 +1,256 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Otl Aicher, Munich 1972. Strict grid, one thing per cell, mono labels, thin rules.
+   The palette is defined by what it excludes: no red, no true black. Committed to a
+   light ground on purpose, because this is projected in a lit room. */
+:root{
+  --paper:#FAFAF8; --ink:#16181A; --ink2:#4A5054; --rule:#C9CCC9; --fill:#EFF0EE;
+  --blue:#2E7FC2; --green:#5EA654; --violet:#7E5AA2; --orange:#E08A2E; --silver:#B9BDBA;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+ font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:20px;line-height:1.5}
+.wrap{max-width:1360px;margin:0 auto;padding:40px 38px 96px}
+.lbl{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.22em;
+ text-transform:uppercase;color:var(--ink2)}
+.mast{display:flex;justify-content:space-between;align-items:flex-end;gap:26px;
+ border-bottom:4px solid var(--ink);padding-bottom:15px;flex-wrap:wrap}
+.mast h1{margin:6px 0 0;font-size:58px;line-height:.98;font-weight:700;letter-spacing:-.035em;
+ text-wrap:balance}
+.mast .rt{text-align:right}
+.sub{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--rule);margin-bottom:34px}
+.sub div{padding:12px 26px 12px 0;margin-right:26px;border-right:1px solid var(--rule)}
+.sub div:last-child{border-right:0;margin-right:0}
+.sub b{display:block;font-size:25px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.nav{display:flex;gap:10px;margin:26px 0 0;flex-wrap:wrap}
+.nav a{display:inline-block;padding:10px 20px;border:2px solid var(--ink);text-decoration:none;
+ color:var(--ink);font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
+ text-transform:uppercase;background:var(--paper)}
+.nav a.here{background:var(--ink);color:var(--paper)}
+.nav a:hover,.nav a:focus-visible{background:var(--blue);border-color:var(--blue);color:#fff}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+a{color:var(--blue)}
+.note{background:var(--fill);border-left:6px solid var(--orange);padding:17px 22px;margin:32px 0 0}
+.note p{margin:0 0 9px;font-size:18px}.note p:last-child{margin:0}
+.foot{margin-top:52px;border-top:1px solid var(--rule);padding-top:17px;font-size:16px;color:var(--ink2)}
+.foot p{margin:0 0 7px}
+@media print{.nav{display:none}body{font-size:12pt}.wrap{padding:0}}
+</style>
+<title>Session 4 Key Terms</title>
+<style>
+h2.sec{margin:52px 0 0;font-size:15px;font-family:"IBM Plex Mono",monospace;letter-spacing:.22em;
+ text-transform:uppercase;font-weight:600;border-bottom:3px solid var(--ink);padding-bottom:11px}
+h2.sec span{float:right;letter-spacing:.06em;color:var(--ink2);font-weight:400;text-transform:none}
+.term{display:grid;grid-template-columns:96px 1fr;gap:26px;padding:28px 0;
+ border-bottom:1px solid var(--rule);align-items:start}
+.n{font-family:"IBM Plex Mono",monospace;font-size:40px;font-weight:600;line-height:1;
+ color:var(--green);font-variant-numeric:tabular-nums}
+.term h2{margin:0 0 10px;font-size:40px;line-height:1.04;font-weight:700;letter-spacing:-.035em}
+.def{margin:0 0 14px;font-size:23px;line-height:1.4;max-width:56ch}
+.more{margin:0 0 14px;font-size:18px;line-height:1.55;color:var(--ink2);max-width:64ch;
+ border-left:3px solid var(--rule);padding-left:16px}
+.flag{margin:0 0 14px;font-size:17px;line-height:1.5;max-width:64ch;background:#FBF2E4;
+ border-left:6px solid var(--orange);padding:13px 17px}
+.rein{background:var(--fill);padding:16px 20px;max-width:70ch}
+.unoff{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+ text-transform:uppercase;background:var(--orange);color:#fff;padding:3px 9px;margin-left:10px}
+.vid{margin:6px 0 8px;font-size:22px;font-weight:600;letter-spacing:-.015em}
+.vid a{color:var(--ink);text-decoration:none;border-bottom:3px solid var(--green)}
+.vid a:hover,.vid a:focus-visible{color:var(--green)}
+.look{margin:0 0 9px;font-size:18px;line-height:1.5;color:var(--ink2)}
+.url{margin:0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;word-break:break-all}
+.fwds{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0;
+ border-top:1px solid var(--rule)}
+.fwd{padding:22px 26px 22px 0;border-right:1px solid var(--rule)}
+.fwd:last-child{border-right:0}
+.fwd h3{margin:0 0 8px;font-size:25px;font-weight:700;letter-spacing:-.02em}
+.fwd .def{font-size:17.5px;line-height:1.5;color:var(--ink2)}
+.when2{margin:0;font-size:16px}
+</style>
+<div class="wrap">
+<header class="mast">
+ <div><span class="lbl">CTIN 290 &middot; Session 4 &middot; Camera Movement &amp; Perspective &middot; Unit 1, Seeing</span>
+  <h1>The words for<br>what you are<br>looking at</h1></div>
+ <div class="rt"><span class="lbl">Sheet 2 of 2</span></div>
+</header>
+<div class="sub">
+ <div><span class="lbl">Terms</span><b>10</b></div>
+ <div><span class="lbl">From the glossary</span><b>4</b></div>
+ <div><span class="lbl">Unpacked today</span><b>6</b></div>
+ <div><span class="lbl">Videos used</span><b>6</b></div>
+ <div><span class="lbl">Links checked</span><b>all</b></div>
+</div>
+<nav class="nav">
+<a href="index.html">Rundown</a>
+<a href="media.html">Sheet 1 &middot; Media</a>
+<a href="terms.html" class="here">Sheet 2 &middot; Terms</a>
+</nav>
+<main>
+<h2 class="sec">In the course glossary <span>These are the four the syllabus already owns for Session 4</span></h2>
+<article class="term">
+  <div class="n">01</div>
+  <div class="body">
+    <h2>Depth of Field</h2>
+    <p class="def">The zone of sharp focus in an image; controlled by aperture, focal length, and distance. Deep DoF keeps foreground and background sharp; shallow DoF isolates subject.</p>
+    <p class="flag">CHANNEL NOTE. This clip is an IGN upload, not the developer&#x27;s own channel. It is the clip the glossary points at and it is fine to play, but say out loud that it is a third-party upload, the same way you flag Madden 96 and the shot-sizes explainer.</p>
+    <div class="rein">
+      <span class="lbl">Reinforced by</span><span class="unoff">not an official channel</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=wWGIakhqr5g" target="_blank" rel="noopener">Clair Obscur: Expedition 33, Launch Trailer</a></p>
+      <p class="look">Focus separating figure from ground, and what it forces you to look at.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=wWGIakhqr5g" target="_blank" rel="noopener">https://www.youtube.com/watch?v=wWGIakhqr5g</a></p>
+    </div>
+  </div>
+</article>
+<article class="term">
+  <div class="n">02</div>
+  <div class="body">
+    <h2>Dutch Angle</h2>
+    <p class="def">A tilted or canted frame, not level with the horizon; often signals unease, chaos, or subjective perspective.</p>
+    <p class="flag">CHANNEL NOTE. High-Def Digest is an enthusiast channel reposting a Sony clip, not an official account. Play it and say so. If you would rather stay official, the same beat is inside the First 9 Minutes upload from Sony, which is already on this sheet for Parallax.</p>
+    <div class="rein">
+      <span class="lbl">Reinforced by</span><span class="unoff">not an official channel</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=hpuS9bvhEEQ" target="_blank" rel="noopener">Spider-Verse, “It’s a leap of faith”</a></p>
+      <p class="look">Approx 2:30. The frame inverts on the leap. The tilt is the whole meaning of the shot, and it is the clearest single example of a camera move that is an argument.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=hpuS9bvhEEQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hpuS9bvhEEQ</a></p>
+    </div>
+  </div>
+</article>
+<article class="term">
+  <div class="n">03</div>
+  <div class="body">
+    <h2>Pan / Tilt / Boom</h2>
+    <p class="def">Camera movements: pan (horizontal turn), tilt (vertical turn), boom (vertical lift). Boom is also a microphone arm.</p>
+    
+    <div class="rein">
+      <span class="lbl">Reinforced by</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">Grand Theft Auto VI, Trailer 1</a></p>
+      <p class="look">Motivated camera moves. Ask what each move is chasing. This is the clip students annotate in the 10:48 block, so the terms and the activity are pointed at the same ninety seconds.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=QdBZY2fkU-0</a></p>
+    </div>
+  </div>
+</article>
+<article class="term">
+  <div class="n">04</div>
+  <div class="body">
+    <h2>Parallax</h2>
+    <p class="def">The apparent shift in position between foreground and background layers when camera moves; creates depth and dimensionality.</p>
+    
+    <div class="rein">
+      <span class="lbl">Reinforced by</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=zzH4rV08TLI" target="_blank" rel="noopener">Spider-Verse, First 9 Minutes</a></p>
+      <p class="look">0:00 to 9:00. Layered depth built out of a 2D-styled image. Watch the planes separate as the camera travels, and notice this is exactly the trick a game engine gives you for free.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=zzH4rV08TLI" target="_blank" rel="noopener">https://www.youtube.com/watch?v=zzH4rV08TLI</a></p>
+    </div>
+  </div>
+</article>
+<h2 class="sec">Taught today, not yet in the glossary <span>Unpacked from the opening and from the annotation activity</span></h2>
+<article class="term">
+  <div class="n">05</div>
+  <div class="body">
+    <h2>Dolly</h2>
+    <p class="def">Moving the whole camera toward or away from the subject, rather than zooming. The relationship between foreground and background changes, which is why it feels like travel and a zoom does not.</p>
+    
+    <div class="rein">
+      <span class="lbl">Reinforced by</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">Sinners, Official Trailer</a></p>
+      <p class="look">A dolly changes what is behind the subject. A zoom does not. Once you have seen it you cannot unsee it.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bKGxHflevuk</a></p>
+    </div>
+  </div>
+</article>
+<article class="term">
+  <div class="n">06</div>
+  <div class="body">
+    <h2>Crane / Boom move</h2>
+    <p class="def">Lifting or lowering the camera through space on an arm. Usually used to reveal scale, or to leave a scene rather than cut away from it.</p>
+    
+    <div class="rein">
+      <span class="lbl">Reinforced by</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">Sinners, Official Trailer</a></p>
+      <p class="look">Where the camera rises, ask what you are being shown that the character cannot see.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bKGxHflevuk</a></p>
+    </div>
+  </div>
+</article>
+<article class="term">
+  <div class="n">07</div>
+  <div class="body">
+    <h2>Focal length</h2>
+    <p class="def">How wide or narrow the lens sees. Wide lenses exaggerate depth and distance between planes; long lenses compress them and flatten the space.</p>
+    
+    <div class="rein">
+      <span class="lbl">Reinforced by</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=okvFCZi5B0k" target="_blank" rel="noopener">Coogler on Shooting With IMAX Film Cameras</a></p>
+      <p class="look">Coogler talks format rather than lens, but the same idea: the choice is made before the shot and it decides what the shot can mean.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=okvFCZi5B0k" target="_blank" rel="noopener">https://www.youtube.com/watch?v=okvFCZi5B0k</a></p>
+    </div>
+  </div>
+</article>
+<article class="term">
+  <div class="n">08</div>
+  <div class="body">
+    <h2>Tracking / Following shot</h2>
+    <p class="def">The camera travels with a moving subject, holding them roughly in frame. Keeps you attached to a character rather than watching them from outside.</p>
+    
+    <div class="rein">
+      <span class="lbl">Reinforced by</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">Grand Theft Auto VI, Trailer 1</a></p>
+      <p class="look">Ask who the camera is loyal to. A follow is a choice about whose story it is.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=QdBZY2fkU-0</a></p>
+    </div>
+  </div>
+</article>
+<article class="term">
+  <div class="n">09</div>
+  <div class="body">
+    <h2>Handheld vs. locked-off</h2>
+    <p class="def">Handheld carries visible human motion; locked-off is fixed and still. One puts a body in the room with the subject, the other puts a witness at a distance.</p>
+    
+    <div class="rein">
+      <span class="lbl">Reinforced by</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">Sinners, Official Trailer</a></p>
+      <p class="look">Stillness is a camera move. It is a decision not to move, and it costs the same nothing in an engine as anything else.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=bKGxHflevuk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bKGxHflevuk</a></p>
+    </div>
+  </div>
+</article>
+<article class="term">
+  <div class="n">10</div>
+  <div class="body">
+    <h2>Motivated camera move</h2>
+    <p class="def">A move that exists because something in the scene requires it: a subject moves, a fact needs revealing, an emotion turns. The opposite is decoration.</p>
+    
+    <div class="rein">
+      <span class="lbl">Reinforced by</span>
+      <p class="vid"><a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">Grand Theft Auto VI, Trailer 1</a></p>
+      <p class="look">This is the whole annotation activity in one term. One sentence per move saying what it is chasing. A move with no sentence is decoration, and finding those is the exercise.</p>
+      <p class="url"><a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=QdBZY2fkU-0</a></p>
+    </div>
+  </div>
+</article>
+<h2 class="sec">Next door <span>Named today, owned by another session</span></h2>
+<div class="fwds"><article class="fwd"><h3>Establishing Shot</h3><p class="def">A wide shot that situates the audience in a place before the scene narrows to the people in it.</p><p class="when2"><span class="lbl">Session 6</span> Named today whenever a crane reveals a location. It belongs to composition.</p></article><article class="fwd"><h3>Blocking</h3><p class="def">The arrangement and movement of figures within the frame, and their relationship to the camera.</p><p class="when2"><span class="lbl">Session 9</span> Camera movement and figure movement are two halves of one problem. Today is the camera half.</p></article><article class="fwd"><h3>Continuity</h3><p class="def">Consistency of space, screen direction, and action across a cut, so that the audience keeps its bearings.</p><p class="when2"><span class="lbl">Session 7</span> The reason a move can be illegal. Today you only name it; editing owns it.</p></article></div>
+</main>
+<div class="note">
+ <p><b>Every definition in the first block is verbatim from the course glossary</b>, the 55-term
+ single source shared with the class. The second block is not in the glossary yet. All six are
+ already taught inside the opening vocabulary and inside the annotation activity, so they are
+ pulled out here where students can see them. Promote any of them and I will fold them into the
+ glossary properly.</p>
+ <p><b>Two of the four glossary clips are third-party uploads</b>, marked in orange above. Neither
+ is a problem to play; both want a sentence saying whose upload it is, the same way you flag
+ Madden 96 and the shot-sizes explainer. The Dutch Angle beat also exists inside Sony's own First
+ 9 Minutes upload if you would rather stay official all session.</p>
+ <p><b>Timestamps are given only where the session plan already had one.</b> Everything else says
+ what to look at instead, because a precise minute mark I had not verified would be invented.</p>
+</div>
+<div class="foot">
+ <p>All six videos confirmed against the YouTube oEmbed endpoint on 1 Sep 2026, channel and title
+ checked against the claim printed here.</p>
+ <p>Exit ticket: one term you learned today and where you saw it. One thing you are still unsure of.</p>
+</div>
+</div>

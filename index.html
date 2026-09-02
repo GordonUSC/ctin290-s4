@@ -90,6 +90,14 @@
     .row{grid-template-columns:1fr; gap:.15em}
     .mark{display:none}
   }
+  .sheets{display:flex; gap:8px; flex-wrap:wrap; margin:0 0 1.4em}
+  .sheets a{
+    font-family:var(--mono); font-size:.68em; letter-spacing:.14em; text-transform:uppercase;
+    padding:.55em 1.1em; border:2px solid var(--rule); color:var(--ink-2);
+    text-decoration:none; word-break:normal;
+  }
+  .sheets a:hover,.sheets a:focus-visible{border-color:var(--live); color:var(--live)}
+  .sheets a.here{background:var(--live); border-color:var(--live); color:#12161B; font-weight:600}
 </style>
 </head>
 <body>
@@ -102,6 +110,12 @@
 
 <p class="sub" style="margin:0 0 1.2em;color:var(--ink-2)">Camera Movement &amp; Perspective &middot; Unit 1: Seeing<br>
 Recognize pan, tilt, dolly, crane; understand perspective and focal length</p>
+
+<nav class="sheets">
+  <a href="index.html" class="here">Rundown</a>
+  <a href="media.html">Sheet 1 &middot; Media</a>
+  <a href="terms.html">Sheet 2 &middot; Terms</a>
+</nav>
 
 <div class="board" id="board">
 
@@ -134,9 +148,9 @@ Recognize pan, tilt, dolly, crane; understand perspective and focal length</p>
     <div class="t">10:48</div><div class="mark">&#9654;</div>
     <div class="what">
       <div class="title">Activity, Movement Annotation</div>
-      <div class="sub">Students annotate every camera move in an assigned clip and, for each one, write the single sentence that says what the move is chasing. Any move without a sentence is decoration, and finding those is the exercise.</div>
+      <div class="sub">Students annotate every camera move in <b>GTA VI Trailer 1</b>, the assigned clip, and for each one write the single sentence that says what the move is chasing. Any move without a sentence is decoration, and finding those is the exercise. Ninety seconds is the whole argument for this clip: short enough to mark every move inside the block, dense enough that there are plenty to mark.</div>
       <div class="sub" style="margin-top:.5em">&#9654; GTA VI, Official Trailer 1
-        <span style="color:var(--ink-3)">&middot; Full trailer (~2:00)</span></div>
+        <span style="color:var(--ink-3)">&middot; 1:30, the assigned clip, play on a loop</span></div>
       <a href="https://www.youtube.com/watch?v=QdBZY2fkU-0">youtube.com/watch?v=QdBZY2fkU-0</a>
       <div class="sub">Analyze camera movement in game cinematics. How does lens choice change perspective and psychology?</div>
     </div>
@@ -150,23 +164,42 @@ Recognize pan, tilt, dolly, crane; understand perspective and focal length</p>
     </div>
   </div>
 
-  <div class="row" data-start="676" data-end="706">
-    <div class="t">11:16</div><div class="mark">&middot;</div>
+  <div class="row play" data-start="676" data-end="706">
+    <div class="t">11:16</div><div class="mark">&#9654;</div>
     <div class="what">
       <div class="title">Second Text, Sinners, and What a Real Camera Costs</div>
-      <div class="sub">You have spent an hour naming moves in animation and in engines, where a crane shot costs nothing but a keyframe. Now watch Coogler talk about shooting on IMAX film. Every move he describes has a price: weight, setup time, a magazine that runs out. Ask the room what changes about a director&#x27;s choices when the camera is heavy. Then turn it around, because that is the point of this block. Your engin&hellip;</div>
+      <div class="sub">You have spent an hour naming moves in animation and in engines, where a crane shot costs nothing but a keyframe. Now watch Coogler talk about shooting on IMAX film. Every move he describes has a price: weight, setup time, a magazine that runs out. Ask the room what changes about a director&#x27;s choices when the camera is heavy. Then turn it around, because that is the point of this block. Your engine camera weighs nothing, so what stops you from moving it constantly, and what is lost when nothing does.</div>
+      <div class="sub" style="margin-top:.5em">&#9654; Sinners, Ryan Coogler on Shooting With IMAX Film Cameras
+        <span style="color:var(--ink-3)">&middot; 2:02, play whole</span></div>
+      <a href="https://www.youtube.com/watch?v=okvFCZi5B0k">youtube.com/watch?v=okvFCZi5B0k</a>
+      <div class="sub">Official, IMAX. Coogler on why aspect ratio changes what a shot means, with the cameras and film stock on screen. The engine equivalent is your render target and framing, so the argument transfers even though the tools do not.</div>
+      <div class="ask">Two minutes of video holding a thirty-minute block. The video is the prompt; the discussion is the work. Have the two questions ready before you press play.</div>
     </div>
   </div>
 
-  <div class="row play" data-start="706" data-end="765">
-    <div class="t">11:46</div><div class="mark">&#9654;</div>
+  <div class="row" data-start="706" data-end="731">
+    <div class="t">11:46</div><div class="mark">&middot;</div>
     <div class="what">
-      <div class="title">Analysis &amp; Homework</div>
-      <div class="sub">Create movement diagram of Up sequence. What moves? When? Effect on emotion? Assign: identify camera movement in personal reference clip.</div>
-      <div class="sub" style="margin-top:.5em">&#9654; Sinners, Ryan Coogler on Shooting With IMAX Film Cameras
-        <span style="color:var(--ink-3)">&middot; Throughout</span></div>
-      <a href="https://www.youtube.com/watch?v=okvFCZi5B0k">youtube.com/watch?v=okvFCZi5B0k</a>
-      <div class="sub">Official, IMAX. Coogler on why aspect ratio changes what a shot means, with the cameras and film stock on screen. The engine equivalent is your render target and framing, so the argument transfers even though the tools do not.</div>
+      <div class="title">Annotation Share-Back</div>
+      <div class="sub">Pairs compare their GTA VI annotations. Where did two people mark the same move and write different sentences? That disagreement is the useful part, not an error. Then the harder question, asked out loud: which moves did nobody manage a sentence for? Those are the decorative ones, and naming them is what the activity was for.</div>
+      <div class="ask">Keep a running list on the board of moves that survived a sentence and moves that did not.</div>
+    </div>
+  </div>
+
+  <div class="row" data-start="731" data-end="755">
+    <div class="t">12:11</div><div class="mark">&middot;</div>
+    <div class="what">
+      <div class="title">Movement Diagram, Up, &ldquo;Married Life&rdquo;</div>
+      <div class="sub">Back to the sequence they watched cold in Session 2 and annotated for shot scale. Same four minutes, third pass, new vocabulary. Diagram it on paper: what moves, when, and what the move does to the emotion. They already know this sequence by heart, which is exactly why it works here. The point they should reach on their own is how little the camera moves, and how much each move is carrying because of it.</div>
+      <div class="ask">Ask why a sequence about a whole marriage holds so still.</div>
+    </div>
+  </div>
+
+  <div class="row" data-start="755" data-end="765">
+    <div class="t">12:35</div><div class="mark">&middot;</div>
+    <div class="what">
+      <div class="title">Homework and Close</div>
+      <div class="sub">Assign: find a camera movement in a clip of your own choosing, outside the course canon, and write the one sentence saying what the move is chasing. Bring the clip and the sentence. Then rewatch today&#x27;s four glossary terms, each of which carries its own clip and timestamp in the Glossary.</div>
     </div>
   </div>
 
@@ -174,7 +207,7 @@ Recognize pan, tilt, dolly, crane; understand perspective and focal length</p>
     <div class="t">12:45</div><div class="mark">&middot;</div>
     <div class="what">
       <div class="title">Exit Ticket, Two Lines Before Anyone Leaves</div>
-      <div class="sub">One term you learned today and where you saw it. One thing you are still unsure of. Collect them at the door. This costs five minutes and it is the cheapest instrument you have for finding out what actually landed. The two things students are least likely to volunteer are which concept went past them and what they believe is expected of them, and this asks for both directly. Read them before the n&hellip;</div>
+      <div class="sub">One term you learned today and where you saw it. One thing you are still unsure of. Collect them at the door. This costs five minutes and it is the cheapest instrument you have for finding out what actually landed. The two things students are least likely to volunteer are which concept went past them and what they believe is expected of them, and this asks for both directly. Read them before the next session and open it by answering the two most common ones by name. Note that the next meeting is <b>Session 6, Wed 9 Sep</b>: Session 5 is Labor Day, so there is a week between this exit ticket and the answer.</div>
     </div>
   </div>
 
